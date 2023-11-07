@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { Admin } from '../models/adminModel.js';
+import { Course } from '../models/courseModel.js';
 
 // *********admin registration*********
 
@@ -78,6 +79,117 @@ export const adminLogin = async (req, res) => {
         console.log(error);
         return res.status(500).send({
             message: 'Error logging in',
+            success: false,
+            error,
+        });
+    }
+}
+
+// *********create course*********
+
+export const createCourse = async (req, res) => {
+    try {
+        const course = new Course(req.body);
+        await course.save();
+        res.status(200).send({
+            message: "Course created successfully",
+            success: true,
+            course,
+            courseId: course.id,
+        })
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({
+            message: 'Error creating course',
+            success: false,
+            error,
+        });
+    }
+}
+
+// *********get all courses*********
+
+export const getCourses = async (req, res) => {
+    try {
+        const courses = await Course.find({});
+        res.status(200).send({
+            success: true,
+            courses,
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(400).send({
+            message: 'No courses found',
+            success: false,
+            error,
+        });
+    }
+}
+
+// *********get course by id*********
+
+export const getCourse = async (req, res) => {
+    try {
+        const courseId = req.params.id;
+        const course = await Course.findById(courseId);
+        res.status(200).send({
+            success: true,
+            course,
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(400).send({
+            message: 'No course found',
+            success: false,
+            error,
+        });
+    }
+}
+
+// *********update course*********
+
+export const updateCourse = async (req, res) => {
+    try {
+        const course = await Course.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (!course) {
+            return res.status(404).send({
+                message: "Course not found",
+                success: false,
+            });
+        }
+        res.status(200).send({
+            message: "Course updated succefully",
+            success: true,
+            course,
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({
+            message: 'Error updating course',
+            success: false,
+            error,
+        });
+    }
+}
+
+export const deleteCourse = async (req, res) => {
+    try {
+        const courseId = req.params.id;
+        const course = await Course.findByIdAndDelete(courseId);
+        if (!course) {
+            return res.status(404).send({
+                message: "Course not found",
+                success: false,
+            });
+        }
+        res.status(200).send({
+            message: "Course deleted",
+            success: true,
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({
+            message: 'Error deleting course',
             success: false,
             error,
         });
