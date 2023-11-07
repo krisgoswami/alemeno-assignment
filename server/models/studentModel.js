@@ -13,7 +13,7 @@ export const userSchema = new mongoose.Schema({
         type: String,
         required: [true, "Password is required"],
     },
-    purchasedCourses: [
+    enrolledCourses: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Course',
