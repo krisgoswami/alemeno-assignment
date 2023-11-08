@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import adminRoute from './routes/adminRoute.js';
-import userRoute from './routes/userRoute.js';
+import adminRoute from './routes/adminRoutes.js';
+import userRoute from './routes/userRoutes.js';
 import connectDB from './dbconfig/connectdb.js';
 
 const app = express();
