@@ -211,7 +211,9 @@ export const completedCourses = async (req, res) => {
         const user = await User.findOne({ email: req.user.email }).populate('enrolledCourses');
 
         if (user) {
-            if (user.enrolledCourses.includes(courseId)) {
+
+            //check if the array of objects contains the course id, and since it's an array of objects, it needs to converted to string.
+            if (user.enrolledCourses.some(course => course._id.toString() === courseId)) {
                 user.completedCourses.push(course);
                 await user.save();
                 res.status(200).send({

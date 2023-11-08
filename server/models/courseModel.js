@@ -13,7 +13,10 @@ const courseSchema = new mongoose.Schema({
     location: String,
     prerequisites: [String],
     syllabus: [syllabusSchema],
-    students: [userSchema],
+    students: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    }],
     published: Boolean,
 });
 
