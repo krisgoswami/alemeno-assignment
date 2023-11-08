@@ -18,9 +18,17 @@ const UpdateCourse = () => {
 
     const [syllabus, setSyllabus] = useState([{ week: "", topic: "", content: "" }]);
 
+    //creating a copy of syllabus by using the spread operator
     const handleSyllabusChange = (index, key, value) => {
-        const updatedSyllabus = [...syllabus];
-        updatedSyllabus[index][key] = value;
+        const updatedSyllabus = syllabus.map((item, i) => {
+            if (i === index) {
+                return {
+                    ...item,
+                    [key]: value
+                };
+            }
+            return item;
+        });
         setSyllabus(updatedSyllabus);
     };
 
@@ -85,7 +93,9 @@ const UpdateCourse = () => {
 
     useEffect(() => {
         getCourseDetails();
+    }, [])
 
+    useEffect(() => {
         if (course && course.syllabus) {
             setSyllabus(course.syllabus);
         }
@@ -124,7 +134,7 @@ const UpdateCourse = () => {
                     formData.append(`prerequisites[${index}]`, pre);
                 });
 
-                const { data } = await axios.post(`${BASE_URL}/api/v1/admin/createCourse`, formData, {
+                const { data } = await axios.put(`${BASE_URL}/api/v1/admin/update/${id}`, formData, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json',
@@ -132,10 +142,10 @@ const UpdateCourse = () => {
                 });
                 // console.log(data);
                 if (data.success) {
-                    toast.success("Course created");
-                    navigate('/home');
+                    toast.success("Course updated");
+                    navigate('/');
                 } else {
-                    toast.error("Error creating course");
+                    toast.error("Error updating course");
                 }
             }
         } catch (error) {
@@ -146,7 +156,7 @@ const UpdateCourse = () => {
 
     return (
         <div className="p-8 mt-20">
-            <h2 className="text-2xl font-bold mb-4">Create course</h2>
+            <h2 className="text-2xl font-bold mb-4">Update course</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <label className="block text-gray-700 mb-2">Course Title</label>
@@ -317,7 +327,7 @@ const UpdateCourse = () => {
                     type="submit"
                     className="bg-cyan-500 hover:bg-cyan-700 text-white py-2 rounded-lg px-4"
                 >
-                    Create Course
+                    Update Course
                 </button>
             </form>
         </div>
