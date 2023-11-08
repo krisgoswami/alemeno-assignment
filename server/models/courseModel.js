@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import { userSchema } from "./studentModel.js";
+import { syllabusSchema } from "./syllabusModel.js";
 
 const courseSchema = new mongoose.Schema({
     title: String,
@@ -11,7 +12,7 @@ const courseSchema = new mongoose.Schema({
     schedule: String,
     location: String,
     prerequisites: [String],
-    syllabus: [String],
+    syllabus: [syllabusSchema],
     students: [userSchema],
     published: Boolean,
 });
