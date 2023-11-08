@@ -7,6 +7,9 @@ import ShowNavbar from './components/ShowNavbar';
 import Navbar from './components/Navbar';
 import Auth from './pages/Auth';
 import CreateCourse from './pages/CreateCourse';
+import Home from './pages/Home';
+import CourseDetails from './pages/CourseDetails';
+import UpdateCourse from './pages/UpdateCourse';
 
 function App() {
 
@@ -20,9 +23,11 @@ function App() {
           </ShowNavbar>
 
           <Routes>
-            {/* <Route path="/" exact element={<Home />} /> */}
+            <Route path="/" exact element={<Home />} />
             <Route path="/login" element={<Auth />} />
             <Route path="/create" element={<CreateCourse />} />
+            <Route path="/course/:id" element={<CourseDetails />} />
+            <Route path="/update/:id" element={<UpdateCourse />} />
             {/* <Route path="/items" element={<Items />} /> */}
             {/* <Route path="/listed-items" element={<MyItems />} /> */}
             {/* <Route path="/item-details/:id" element={<ItemDetails />} /> */}
