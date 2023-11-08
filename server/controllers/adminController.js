@@ -89,7 +89,11 @@ export const adminLogin = async (req, res) => {
 
 export const createCourse = async (req, res) => {
     try {
-        const course = new Course(req.body);
+        const { syllabus, ...restOfCourseData } = req.body;
+        const course = new Course({
+            ...restOfCourseData,
+            syllabus: JSON.parse(syllabus),
+        });
         await course.save();
         res.status(200).send({
             message: "Course created successfully",
