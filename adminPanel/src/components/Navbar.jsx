@@ -52,12 +52,12 @@ const Navbar = () => {
         <nav className="fixed z-10 top-0 left-0 right-0 bg-cyan-500 p-4">
             <div className="container mx-auto">
                 <div className="flex justify-between items-center">
-                    <div className="text-white font-bold text-xl cursor-pointer" onClick={() => { navigate('/') }}>Settyl Market</div>
+                    <div className="text-white font-bold text-xl cursor-pointer" onClick={() => { navigate('/') }}>Alemeno</div>
                     <div className="block lg:hidden">
                     </div>
                     <div className="lg:flex items-center justify-between text-lg gap-4">
                         <p className="text-white font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/') }}>Home</p>
-                        <p className="text-white font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/items') }}>All Items</p>
+                        <p className="text-white font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/create') }}>Create Course</p>
                     </div>
                     <form onSubmit={'handleSearch'} className="flex items-center">
                         <input
@@ -94,20 +94,20 @@ const Navbar = () => {
                                     </div>
 
                                     <div
-                                        className="invisible absolute z-50 flex w-full flex-col rounded-md bg-teal-800  text-gray-800 shadow-xl group-hover:visible">
-                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-teal-100 md:mx-2" onClick={() => { navigate(`/profile/${userId}`) }}>
+                                        className="invisible absolute z-50 flex w-full flex-col rounded-md bg-cyan-600  text-gray-800 shadow-xl group-hover:visible">
+                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate(`/profile/${userId}`) }}>
                                             Profile
                                         </a>
-                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-teal-100 md:mx-2" onClick={() => { navigate('/create-item') }}>
+                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate('/create-item') }}>
                                             Create an item to sell
                                         </a>
-                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-teal-100 md:mx-2" onClick={() => { navigate('/listed-items') }}>
+                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate('/listed-items') }}>
                                             View listed items
                                         </a>
-                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-teal-100 md:mx-2" onClick={() => { navigate('/purchases') }}>
+                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate('/purchases') }}>
                                             Your purchases
                                         </a>
-                                        <a className="block py-4 font-semibold text-white hover:text-teal-100 md:mx-2" onClick={handleLogout}>
+                                        <a className="block py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={handleLogout}>
                                             Logout
                                         </a>
                                     </div>

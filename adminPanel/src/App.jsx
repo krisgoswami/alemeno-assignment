@@ -6,6 +6,7 @@ import { store } from './redux/store';
 import ShowNavbar from './components/ShowNavbar';
 import Navbar from './components/Navbar';
 import Auth from './pages/Auth';
+import CreateCourse from './pages/CreateCourse';
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
           <Routes>
             {/* <Route path="/" exact element={<Home />} /> */}
             <Route path="/login" element={<Auth />} />
-            {/* <Route path="/create-item" element={<CreateItem />} /> */}
+            <Route path="/create" element={<CreateCourse />} />
             {/* <Route path="/items" element={<Items />} /> */}
             {/* <Route path="/listed-items" element={<MyItems />} /> */}
             {/* <Route path="/item-details/:id" element={<ItemDetails />} /> */}
