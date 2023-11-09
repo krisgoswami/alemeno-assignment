@@ -24,6 +24,26 @@ const CourseCard = ({ id, title, instructor, description, price, enrollment_stat
 
 export default CourseCard;
 
+export const DashboardCard = ({ id, title, instructor, description, price, enrollment_status, thumbnail }) => {
+
+    const navigate = useNavigate();
+
+    return (
+        <div className="bg-cyan-200 w-80 max-h-[450px] h-[500px] p-4 shadow-md rounded-2xl">
+            <img src={thumbnail} alt={''} className="w-full h-40 object-cover mb-4 rounded-md" />
+            <h3 className="text-xl text-black font-medium mb-2 truncate max-h-24 overflow-hidden">{title}</h3>
+            <p className="text-gray-700 mb-2 font-normal text-md mt-3">by <span className='font-semibold'>{instructor}</span></p>
+            <button
+                onClick={() => {
+                    navigate(`/course/${id}`);
+                }}
+                className="bg-cyan-500 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg mt-2">
+                View
+            </button>
+        </div>
+    );
+};
+
 export const CoursesCard = ({ id, title, instructor, description, price, enrollment_status, thumbnail }) => {
     const navigate = useNavigate();
     return (
