@@ -30,7 +30,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div className='flex flex-wrap justify-start gap-14 mt-20'>
+        <div className='flex flex-wrap justify-around gap-14 mt-20'>
             {courses?.map((course) =>
                 <div key={course?._id} className="ml-10 mt-5">
                     <CourseCard
