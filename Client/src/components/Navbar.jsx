@@ -13,17 +13,17 @@ const Navbar = () => {
     let user = localStorage.getItem("username");
     let userId = localStorage.getItem("userId");
 
-    // const [searchQuery, setSearchQuery] = useState('');
-    // const handleInputChange = (e) => {
-    //     setSearchQuery(e.target.value);
-    // };
+    const [searchQuery, setSearchQuery] = useState('');
+    const handleInputChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
 
-    // const handleSearch = (e) => {
-    //     e.preventDefault();
-    //     if (searchQuery.trim() !== '') {
-    //         navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
-    //     }
-    // };
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (searchQuery.trim() !== '') {
+            navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+        }
+    };
 
 
     const navigate = useNavigate();
@@ -57,13 +57,13 @@ const Navbar = () => {
                     </div>
                     <div className="lg:flex items-center justify-between text-lg gap-4">
                         <p className="text-white font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/') }}>Home</p>
-                        <p className="text-white font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/create') }}>Create Course</p>
+                        <p className="text-white font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/courses') }}>Courses</p>
                     </div>
-                    <form onSubmit={'handleSearch'} className="flex items-center">
+                    <form onSubmit={handleSearch} className="flex items-center">
                         <input
                             type="text"
-                            value={'searchQuery'}
-                            onChange={'handleInputChange'}
+                            value={searchQuery}
+                            onChange={handleInputChange}
                             placeholder="Search items..."
                             className="border border-gray-300 w-96 p-2 mr-2 rounded-md"
                         />
@@ -99,7 +99,7 @@ const Navbar = () => {
                                             Profile
                                         </a>
                                         <a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate('/create-item') }}>
-                                            Create an item to sell
+                                            View enrolled courses
                                         </a>
                                         <a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate('/listed-items') }}>
                                             View listed items
