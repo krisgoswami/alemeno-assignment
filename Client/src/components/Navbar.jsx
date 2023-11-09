@@ -103,12 +103,6 @@ const Navbar = () => {
                                         <a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate('/enrolledCourses') }}>
                                             View enrolled courses
                                         </a>
-                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate('/listed-items') }}>
-                                            View listed items
-                                        </a>
-                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate('/purchases') }}>
-                                            Your purchases
-                                        </a>
                                         <a className="block py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={handleLogout}>
                                             Logout
                                         </a>

@@ -31,23 +31,21 @@ const EnrolledCourses = () => {
 
 
     return (
-        <div className="w-full h-screen p-5 pb-10 mt-20">
+        <div className="flex flex-col h-full p-4 mt-20">
             <h2 className="text-xl font-bold mb-10 ml-10">Dashboard</h2>
-            <div className='flex justify-start'>
-                {purchasedCourses?.map((course) =>
-                    <div key={course?._id} className="mx-10 mt-4">
-                        <DashboardCard
-                            id={course?._id}
-                            title={course?.title}
-                            instructor={course?.instructor}
-                            thumbnail={course?.thumbnail}
-                        />
-                    </div>
-                )}
-                {purchasedCourses.length === 0 &&
-                    <p className="text-xl font-medium mx-10 mb-4">You have not made any purchases yet</p>
-                }
-            </div>
+            {purchasedCourses?.map((course) =>
+                <div key={course?._id} className="mx-10 mt-4">
+                    <DashboardCard
+                        id={course?._id}
+                        title={course?.title}
+                        instructor={course?.instructor}
+                        thumbnail={course?.thumbnail}
+                    />
+                </div>
+            )}
+            {purchasedCourses.length === 0 &&
+                <p className="text-xl font-medium mx-10 mb-4">Your enrolled courses will show here</p>
+            }
         </div>
     )
 }
