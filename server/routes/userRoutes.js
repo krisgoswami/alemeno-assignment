@@ -1,5 +1,5 @@
 import express from 'express';
-import { completedCourses, createUser, enrollCourse, enrolledCourses, getCourse, getCourses, searchCourses, userLogin } from '../controllers/studentController.js';
+import { completedCourse, completedCourses, createUser, enrollCourse, enrolledCourses, getCourse, getCourses, searchCourses, userLogin } from '../controllers/studentController.js';
 import { authenticateJwt } from '../utils/jwtAuth.js';
 
 const router = express.Router();
@@ -11,6 +11,7 @@ router.get('/course/:id', getCourse);
 router.get('/search', searchCourses);
 router.post('/enroll/:id', authenticateJwt, enrollCourse);
 router.get('/enrolledCourses', authenticateJwt, enrolledCourses);
+router.get('/completedCourses', authenticateJwt, completedCourse);
 router.post('/markComplete/:id', authenticateJwt, completedCourses);
 
 export default router;

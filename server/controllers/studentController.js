@@ -213,7 +213,14 @@ export const completedCourses = async (req, res) => {
         if (user) {
 
             //check if the array of objects contains the course id, and since it's an array of objects, it needs to converted to string.
-            if (user.enrolledCourses.some(course => course._id.toString() === courseId)) {
+            if (user.completedCourses.some(course => course._id.toString() === courseId)) {
+                res.status(400).send({
+                    message: "Already marked as completed",
+                    success: false,
+                    user,
+                });
+            }
+            else if (user.enrolledCourses.some(course => course._id.toString() === courseId)) {
                 user.completedCourses.push(course);
                 await user.save();
                 res.status(200).send({
@@ -221,12 +228,41 @@ export const completedCourses = async (req, res) => {
                     success: true,
                     user,
                 });
-            } else {
+            }
+            else {
                 return res.status(400).send({
                     message: "User not enrolled in this course",
                     success: false,
                 });
             }
+
+        } else {
+            return res.status(400).send({
+                message: "User not found",
+                success: false,
+            });
+        }
+    } catch (error) {
+        console.log(error);
+        return res.status(400).send({
+            message: 'No courses found',
+            success: false,
+            error,
+        });
+    }
+}
+
+// *********retrieve completed courses*********
+
+export const completedCourse = async (req, res) => {
+    try {
+        const user = await User.findOne({ email: req.user.email }).populate('completedCourses');
+
+        if (user) {
+            res.status(200).send({
+                completedCourses: user.completedCourses || [],
+                success: true,
+            });
         } else {
             return res.status(400).send({
                 message: "User not found",
