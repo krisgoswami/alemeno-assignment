@@ -10,6 +10,7 @@ import ShowNavbar from './components/ShowNavbar';
 import Navbar from './components/Navbar';
 import Courses from './pages/Courses';
 import Search from './pages/Search';
+import CourseDetails from './pages/CourseDetails';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
             <Route path="/login" element={<Auth />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/search" element={<Search />} />
-            {/* <Route path="/course/:id" element={<CourseDetails />} /> */}
+            <Route path="/course/:id" element={<CourseDetails />} />
             {/* <Route path="/update/:id" element={<UpdateCourse />} /> */}
             {/* <Route path="/items" element={<Items />} /> */}
             {/* <Route path="/listed-items" element={<MyItems />} /> */}
