@@ -1,5 +1,9 @@
 import React from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { BASE_URL } from '../utils/helper';
+import toast from 'react-hot-toast';
 
 const CourseCard = ({ id, title, instructor, description, price, enrollment_status, thumbnail }) => {
 
@@ -27,6 +31,31 @@ export default CourseCard;
 export const DashboardCard = ({ id, title, instructor, description, price, enrollment_status, thumbnail }) => {
 
     const navigate = useNavigate();
+    const token = localStorage.getItem('token');
+    const email = localStorage.getItem('email');
+
+    const [markComplete, setMarkComplete] = useState([]);
+
+    //handle mark complete
+    const handleMarkComplete = async () => {
+        try {
+            const { data } = await axios.post(`${BASE_URL}/api/v1/user/markComplete/${id}`, {}, {
+                headers: {
+                    'email': email,
+                    'Authorization': `Bearer ${token}`,
+                }
+            });
+            console.log(data);
+            if (data.success) {
+                toast.success("You marked this course as complete.")
+                location.reload();
+            }
+        } catch (error) {
+            console.log(error);
+            toast.error("Already marked as complete.")
+        }
+    }
+
     return (
         <div className="bg-slate-50 flex items-center border p-4 mb-4">
             <div className="flex-shrink-0 w-96 h-56">
@@ -38,6 +67,15 @@ export const DashboardCard = ({ id, title, instructor, description, price, enrol
                 <p className="text-gray-700 mb-2 w-3/4 text-lg text-justify">{description}</p>
                 {/* <p className="text-black text-xl font-bold mb-4">{`₹ ${price}`}</p> */}
                 {/* <p className="text-black mb-4">Enrollment: <span className='text-black font-semibold'>{enrollment_status}</span></p> */}
+
+                <div className="mb-4">
+                    <button
+                        onClick={handleMarkComplete}
+                        className="bg-cyan-500 hover:bg-cyan-700 text-white px-4 py-2 rounded-md"
+                    >
+                        Mark as complete
+                    </button>
+                </div>
 
                 <button
                     onClick={() => {

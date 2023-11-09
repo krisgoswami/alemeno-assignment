@@ -6,6 +6,7 @@ import { DashboardCard } from '../components/CourseCard';
 const EnrolledCourses = () => {
 
     const [purchasedCourses, setPurchasedCourses] = useState([]);
+    const [completedCourses, setCompletedCourses] = useState([]);
     const token = localStorage.getItem('token');
     const email = localStorage.getItem('email');
 
@@ -25,15 +26,44 @@ const EnrolledCourses = () => {
             console.log(error);
         }
     }
+    const getCompletedCourses = async () => {
+        try {
+            const { data } = await axios.get(`${BASE_URL}/api/v1/user/completedCourses`, {
+                headers: {
+                    'email': email,
+                    'Authorization': `Bearer ${token}`,
+                }
+            });
+            console.log(data);
+            if (data.success) {
+                setCompletedCourses(data.completedCourses);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
     useEffect(() => {
         getPurchasedCourses();
+        getCompletedCourses();
     }, [])
 
 
     return (
         <div className="flex flex-col h-full p-4 mt-20">
             <h2 className="text-xl font-bold mb-10 ml-10">Dashboard</h2>
+            <h2 className="text-xl font-semibold mb-4 ml-10">Enrolled</h2>
             {purchasedCourses?.map((course) =>
+                <div key={course?._id} className="mx-10 mt-4">
+                    <DashboardCard
+                        id={course?._id}
+                        title={course?.title}
+                        instructor={course?.instructor}
+                        thumbnail={course?.thumbnail}
+                    />
+                </div>
+            )}
+            <h2 className="text-xl font-semibold mb-4 ml-10">Completed</h2>
+            {completedCourses?.map((course) =>
                 <div key={course?._id} className="mx-10 mt-4">
                     <DashboardCard
                         id={course?._id}
