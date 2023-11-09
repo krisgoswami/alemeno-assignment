@@ -58,7 +58,7 @@ const CourseDetails = () => {
     //to check if user is logged in or not
     const authCheck = () => {
         if (isLogin) {
-            navigate(`/purchase/${id}`);
+            navigate(`/enroll/${id}`);
         } else {
             toast("You need to login to purchase", {
                 icon: '⚠️',
@@ -114,10 +114,10 @@ const CourseDetails = () => {
                     <div className='mb-4'>
                         <label className="text-black text-lg font-semibold">Syllabus:</label>
                         <button
-                            className="ml-2 text-blue-500 focus:outline-none"
+                            className="ml-2 text-white focus:outline-none"
                             onClick={toggleSyllabus}
                         >
-                            {isExpanded ? <div className='ml-10 px-2 bg-cyan-500 text-white text-lg font-bold rounded-md align-middle items-center'>Collapse</div> : <div className='ml-10 px-2 bg-cyan-500 hover:bg-cyan-700 text-white text-lg font-bold rounded-md align-middle items-center'>Expand</div>}
+                            {isExpanded ? <div className='ml-10 px-2 bg-cyan-500 text-white text-sm font-bold rounded-md align-middle items-center'>Collapse</div> : <div className='ml-10 px-2 bg-cyan-500 hover:bg-cyan-700 text-white text-sm font-bold rounded-md align-middle items-center'>Expand</div>}
                         </button>
                         {isExpanded && (
                             <div>

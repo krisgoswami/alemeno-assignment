@@ -100,7 +100,7 @@ const Navbar = () => {
                                         <a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate(`/profile/${userId}`) }}>
                                             Profile
                                         </a>
-                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate('/create-item') }}>
+                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate('/enrolledCourses') }}>
                                             View enrolled courses
                                         </a>
                                         <a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate('/listed-items') }}>

@@ -11,6 +11,8 @@ import Navbar from './components/Navbar';
 import Courses from './pages/Courses';
 import Search from './pages/Search';
 import CourseDetails from './pages/CourseDetails';
+import Purchase from './pages/Purchase';
+import EnrolledCourses from './pages/EnrolledCourses';
 
 function App() {
   return (
@@ -28,12 +30,13 @@ function App() {
             <Route path="/courses" element={<Courses />} />
             <Route path="/search" element={<Search />} />
             <Route path="/course/:id" element={<CourseDetails />} />
+            <Route path="/enroll/:id" element={<Purchase />} />
+            <Route path="/enrolledCourses" element={<EnrolledCourses />} />
             {/* <Route path="/update/:id" element={<UpdateCourse />} /> */}
             {/* <Route path="/items" element={<Items />} /> */}
             {/* <Route path="/listed-items" element={<MyItems />} /> */}
             {/* <Route path="/item-details/:id" element={<ItemDetails />} /> */}
             {/* <Route path="/update-item/:id" element={<EditItem />} /> */}
-            {/* <Route path="/purchase/:id" element={<Purchase />} /> */}
             {/* <Route path="/purchases" element={<Purchases />} /> */}
             {/* <Route path="/auction" element={<AuctionPage />} /> */}
             {/* <Route path="/profile/:id" element={<UserProfile />} /> */}
