@@ -154,6 +154,22 @@ const UpdateCourse = () => {
         }
     }
 
+    const handleDelete = async () => {
+        try {
+            const { data } = await axios.delete(`${BASE_URL}/api/v1/admin/delete/${id}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                }
+            });
+            if (data?.success) {
+                toast.success("Course deleted");
+                navigate('/');
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <div className="p-8 mt-20">
             <h2 className="text-2xl font-bold mb-4">Update course</h2>
@@ -328,6 +344,12 @@ const UpdateCourse = () => {
                     className="bg-cyan-500 hover:bg-cyan-700 text-white py-2 rounded-lg px-4"
                 >
                     Update Course
+                </button>
+                <button
+                    className="bg-red-500 hover:bg-red-700 text-white py-2 rounded-lg px-4"
+                    onClick={handleDelete}
+                >
+                    Delete Course
                 </button>
             </form>
         </div>
