@@ -59,21 +59,6 @@ const Navbar = () => {
                         <p className="text-white font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/') }}>Home</p>
                         <p className="text-white font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/create') }}>Create Course</p>
                     </div>
-                    <form onSubmit={'handleSearch'} className="flex items-center">
-                        <input
-                            type="text"
-                            value={'searchQuery'}
-                            onChange={'handleInputChange'}
-                            placeholder="Search items..."
-                            className="border border-gray-300 w-96 p-2 mr-2 rounded-md"
-                        />
-                        <button
-                            type="submit"
-                            className="bg-white font-bold py-2 px-4 rounded-md"
-                        >
-                            Search
-                        </button>
-                    </form>
                     <div className='flex items-center'>
                         {!isLogin &&
                             <button className="bg-white text-black font-bold px-4 py-2 rounded-md ml-20" onClick={handleLogin}>Login</button>
@@ -95,18 +80,7 @@ const Navbar = () => {
 
                                     <div
                                         className="invisible absolute z-50 flex w-full flex-col rounded-md bg-cyan-600  text-gray-800 shadow-xl group-hover:visible">
-                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate(`/profile/${userId}`) }}>
-                                            Profile
-                                        </a>
-                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate('/create-item') }}>
-                                            Create an item to sell
-                                        </a>
-                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate('/listed-items') }}>
-                                            View listed items
-                                        </a>
-                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate('/purchases') }}>
-                                            Your purchases
-                                        </a>
+
                                         <a className="block py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={handleLogout}>
                                             Logout
                                         </a>

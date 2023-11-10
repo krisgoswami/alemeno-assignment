@@ -127,7 +127,7 @@ const UpdateCourse = () => {
                 formData.append('syllabus', syllabusJSON);
 
                 // Convert comma-separated pre-requisites to an array of strings
-                const prereqs = inputs.prerequisites.split(',').map(pre => pre.trim());
+                const prereqs = inputs.prerequisites.split(',').map(pre => pre.trim(''));
 
                 // Append the pre-requisites to the FormData
                 prereqs.forEach((pre, index) => {

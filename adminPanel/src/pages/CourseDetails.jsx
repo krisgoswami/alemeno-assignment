@@ -48,23 +48,7 @@ const CourseDetails = () => {
     return (
         <div>
             <div className="p-8 mt-20">
-                <h2 className="text-2xl font-bold mb-4">{inputs.title}</h2>
-                <p className="text-lg mb-2">{inputs.instructor}</p>
-                <p className="text-gray-700 mb-8">{inputs.description}</p>
-                <p className="text-gray-700 mb-8">{inputs.price}</p>
-                <p className="text-gray-700 mb-8">{inputs.enrollment_status}</p>
-                <p className="text-gray-700 mb-8">{inputs.duration}</p>
-                <p className="text-gray-700 mb-8">{inputs.schedule}</p>
-                <p className="text-gray-700 mb-8">{inputs.location}</p>
-                <p className="text-gray-700 mb-8">{inputs.prerequisites}</p>
-                {inputs.syllabus?.map((item, index) => (
-                    <div key={index} className='mb-4'>
-                        <p className="text-gray-700 mb-8">Week: {item.week}</p>
-                        <p className="text-gray-700 mb-8">Topic: {item.topic}</p>
-                        <p className="text-gray-700 mb-8">Content: {item.content}</p>
-                    </div>
-                ))}
-
+                <h2 className="text-2xl font-bold mb-4">Title: {inputs.title}</h2>
                 <div className="flex flex-row items-center mb-2">
                     <img
                         src={inputs.thumbnail}
@@ -73,6 +57,28 @@ const CourseDetails = () => {
                         style={{ maxWidth: '350px', height: '200px', margin: "2px" }} // Set max width and height for thumbnail
                     />
                 </div>
+                <p className="text-lg mb-2">Instructor: {inputs.instructor}</p>
+                <p className="text-gray-700 mb-8">Description: {inputs.description}</p>
+                <p className="text-gray-700 mb-8">Price: ₹ {inputs.price}</p>
+                <p className="text-gray-700 mb-8">Enrollment: {inputs.enrollment_status}</p>
+                <p className="text-gray-700 mb-8">Duration: {inputs.duration}</p>
+                <p className="text-gray-700 mb-8">Schedule: {inputs.schedule}</p>
+                <p className="text-gray-700 mb-8">Location: {inputs.location}</p>
+                <p className="text-gray-700 mb-3 font-bold">Pre-requisites:</p>
+                {inputs.prerequisites?.map((req, index) =>
+                    <div key={index} className="mb-2">
+                        <p className='text-black'>- {req}</p>
+                    </div>
+                )}
+                <p className="text-gray-700 mb-1 font-bold">Syllabus:</p>
+                {inputs.syllabus?.map((item, index) => (
+                    <div key={index} className='mb-4'>
+                        <p className="text-gray-700 mb-1">Week: {item.week}</p>
+                        <p className="text-gray-700 mb-1">Topic: {item.topic}</p>
+                        <p className="text-gray-700 mb-1">Content: {item.content}</p>
+                    </div>
+                ))}
+
                 <button
                     className='bg-cyan-500 text-white px-4 py-2 rounded-full'
                     onClick={() => {

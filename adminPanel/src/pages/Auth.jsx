@@ -42,15 +42,15 @@ const Auth = () => {
         }
 
         try {
-            const { data } = await axios.post(`${BASE_URL}/api/v1/user/login`, {
+            const { data } = await axios.post(`${BASE_URL}/api/v1/admin/login`, {
                 email: inputs.email,
                 password: inputs.password,
             });
             if (data.success) {
                 localStorage.setItem('token', data.token);
-                localStorage.setItem("userId", data?.user._id);
-                localStorage.setItem("email", data?.user.email);
-                localStorage.setItem("username", data?.user.name);
+                localStorage.setItem("userId", data?.admin._id);
+                localStorage.setItem("email", data?.admin.email);
+                localStorage.setItem("username", data?.admin.name);
                 dispatch(authActions.login());
                 toast.success("Logged in");
                 navigate('/');
@@ -71,16 +71,16 @@ const Auth = () => {
         }
 
         try {
-            const { data } = await axios.post(`${BASE_URL}/api/v1/user/signup`, {
+            const { data } = await axios.post(`${BASE_URL}/api/v1/admin/signup`, {
                 name: inputs.name,
                 email: inputs.email,
                 password: inputs.password,
             });
             if (data.success) {
                 localStorage.setItem('token', data.token);
-                localStorage.setItem("userId", data?.user._id);
-                localStorage.setItem("email", data?.user.email);
-                localStorage.setItem("username", data?.user.name);
+                localStorage.setItem("userId", data?.admin._id);
+                localStorage.setItem("email", data?.admin.email);
+                localStorage.setItem("username", data?.admin.name);
                 dispatch(authActions.login());
                 toast.success("Registered");
                 navigate('/');

@@ -136,6 +136,7 @@ const CreateCourse = () => {
                         name="instructor"
                         value={inputs.instructor}
                         onChange={handleInputChange}
+                        placeholder='instructor name'
                         className="w-1/2 border border-gray-300 rounded px-4 py-2"
                     />
                 </div>
@@ -145,6 +146,7 @@ const CreateCourse = () => {
                         name="description"
                         value={inputs.description}
                         onChange={handleInputChange}
+                        placeholder='description of the course'
                         className="w-1/2 border border-gray-300 rounded px-4 py-2 h-32"
                     />
                 </div>
@@ -174,6 +176,7 @@ const CreateCourse = () => {
                     <input
                         type="text"
                         name="thumbnail"
+                        placeholder='link of the thumbnail image'
                         value={inputs.thumbnail}
                         onChange={handleInputChange}
                         className="w-1/2 border border-gray-300 rounded px-4 py-2"
@@ -186,6 +189,7 @@ const CreateCourse = () => {
                         name="duration"
                         value={inputs.duration}
                         onChange={handleInputChange}
+                        placeholder='2 weeks/4 weeks/8 weeks'
                         className="w-1/2 border border-gray-300 rounded px-4 py-2"
                     />
                 </div>
@@ -196,6 +200,7 @@ const CreateCourse = () => {
                         name="schedule"
                         value={inputs.schedule}
                         onChange={handleInputChange}
+                        placeholder='Saturday and Sunday, 6 PM to 8 PM'
                         className="w-1/2 border border-gray-300 rounded px-4 py-2"
                     />
                 </div>
@@ -206,6 +211,7 @@ const CreateCourse = () => {
                         name="location"
                         value={inputs.location}
                         onChange={handleInputChange}
+                        placeholder='online/offline'
                         className="w-1/2 border border-gray-300 rounded px-4 py-2"
                     />
                 </div>
@@ -215,6 +221,7 @@ const CreateCourse = () => {
                         name="prerequisites"
                         value={inputs.prerequisites}
                         onChange={handleInputChange}
+                        placeholder='pre-reqs of the course. Separate with comma (eg. React, Node)'
                         className="w-1/2 border border-gray-300 rounded px-4 py-2 h-32"
                     />
                 </div>
@@ -235,6 +242,7 @@ const CreateCourse = () => {
                             <input
                                 type="text"
                                 value={item.topic}
+                                placeholder='name of topic'
                                 onChange={(e) => handleSyllabusChange(index, 'topic', e.target.value)}
                                 className="w-1/2 border border-gray-300 rounded px-4 py-2"
                             />
@@ -244,6 +252,7 @@ const CreateCourse = () => {
                             <input
                                 type="text"
                                 value={item.content}
+                                placeholder='description of the topic'
                                 onChange={(e) => handleSyllabusChange(index, 'content', e.target.value)}
                                 className="w-1/2 border border-gray-300 rounded px-4 py-2"
                             />
