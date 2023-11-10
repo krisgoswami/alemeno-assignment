@@ -90,6 +90,52 @@ export const userLogin = async (req, res) => {
     }
 }
 
+// *********get user details*********
+export const userDetails = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+        if (user) {
+            res.status(200).send({
+                message: "User found",
+                success: true,
+                user,
+            });
+        }
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({
+            message: 'Error ',
+            success: false,
+            error,
+        });
+    }
+}
+
+// *********user profile*********
+export const userProfile = async (req, res) => {
+    try {
+        const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (!user) {
+            return res.status(404).send({
+                message: "Item not found",
+                success: false,
+            });
+        }
+        res.status(200).send({
+            message: "Item updated succefully",
+            success: true,
+            user,
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({
+            message: 'Error updating user',
+            success: false,
+            error,
+        });
+    }
+}
+
 // *********get all courses*********
 
 export const getCourses = async (req, res) => {
