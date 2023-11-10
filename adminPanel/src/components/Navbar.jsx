@@ -30,7 +30,7 @@ const Navbar = () => {
     const dispatch = useDispatch();
 
     const handleLogin = () => {
-        navigate('/login');
+        navigate('/');
     }
 
     //handle logout
@@ -41,7 +41,7 @@ const Navbar = () => {
             toast("You've been logged out", {
                 icon: '⚠️',
             });
-            navigate('/login');
+            navigate('/');
         } catch (error) {
             console.log(error);
         }
@@ -52,11 +52,11 @@ const Navbar = () => {
         <nav className="fixed z-10 top-0 left-0 right-0 bg-cyan-500 p-4">
             <div className="container mx-auto">
                 <div className="flex justify-between items-center">
-                    <div className="text-white font-bold text-xl cursor-pointer" onClick={() => { navigate('/') }}>Alemeno</div>
+                    <div className="text-white font-bold text-xl cursor-pointer" onClick={() => { navigate('/home') }}>Alemeno</div>
                     <div className="block lg:hidden">
                     </div>
                     <div className="lg:flex items-center justify-between text-lg gap-4">
-                        <p className="text-white font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/') }}>Home</p>
+                        <p className="text-white font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/home') }}>Home</p>
                         <p className="text-white font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/create') }}>Create Course</p>
                     </div>
                     <div className='flex items-center'>

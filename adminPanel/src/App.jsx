@@ -23,8 +23,8 @@ function App() {
           </ShowNavbar>
 
           <Routes>
-            <Route path="/" exact element={<Home />} />
-            <Route path="/login" element={<Auth />} />
+            <Route path="/" exact element={<Auth />} />
+            <Route path="/home" exact element={<Home />} />
             <Route path="/create" element={<CreateCourse />} />
             <Route path="/course/:id" element={<CourseDetails />} />
             <Route path="/update/:id" element={<UpdateCourse />} />

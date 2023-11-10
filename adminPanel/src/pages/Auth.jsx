@@ -53,7 +53,7 @@ const Auth = () => {
                 localStorage.setItem("username", data?.admin.name);
                 dispatch(authActions.login());
                 toast.success("Logged in");
-                navigate('/');
+                navigate('/home');
             } else {
                 toast.error("Email or password incorrect");
             }
@@ -83,7 +83,7 @@ const Auth = () => {
                 localStorage.setItem("username", data?.admin.name);
                 dispatch(authActions.login());
                 toast.success("Registered");
-                navigate('/');
+                navigate('/home');
             } else {
                 toast.error("Email or password incorrect");
             }

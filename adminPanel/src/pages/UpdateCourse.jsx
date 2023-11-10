@@ -143,7 +143,7 @@ const UpdateCourse = () => {
                 // console.log(data);
                 if (data.success) {
                     toast.success("Course updated");
-                    navigate('/');
+                    navigate('/home');
                 } else {
                     toast.error("Error updating course");
                 }
@@ -163,7 +163,7 @@ const UpdateCourse = () => {
             });
             if (data?.success) {
                 toast.success("Course deleted");
-                navigate('/');
+                navigate('/home');
             }
         } catch (error) {
             console.log(error);

@@ -104,7 +104,7 @@ const CreateCourse = () => {
                 // console.log(data);
                 if (data.success) {
                     toast.success("Course created");
-                    navigate('/');
+                    navigate('/home');
                 } else {
                     toast.error("Error creating course");
                 }
