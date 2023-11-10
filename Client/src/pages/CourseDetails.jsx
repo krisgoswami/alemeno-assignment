@@ -9,11 +9,13 @@ const CourseDetails = () => {
 
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('username');
+    const email = localStorage.getItem('email');
     const navigate = useNavigate();
     const id = useParams().id;
     const [inputs, setInputs] = useState({});
     const [course, setCourse] = useState({});
     const [isExpanded, setIsExpanded] = useState(false);
+    const [isCoursePurchased, setIsCoursePurchased] = useState(false);
 
     //global state
     let isLogin = useSelector((state) => state.isLogin);
@@ -28,7 +30,6 @@ const CourseDetails = () => {
                     'Authorization': `Bearer ${token}`,
                 }
             });
-            console.log(data);
             if (data?.success) {
                 const course = data?.course;
                 setCourse(course);
@@ -45,7 +46,25 @@ const CourseDetails = () => {
                     prerequisites: course.prerequisites,
                     syllabus: course.syllabus,
                 })
-                console.log(inputs.brand);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    //logic to get completed courses
+    const getEnrolledCourses = async () => {
+        try {
+            const { data } = await axios.get(`${BASE_URL}/api/v1/user/enrolledCourses`, {
+                headers: {
+                    'email': email,
+                    'Authorization': `Bearer ${token}`,
+                }
+            });
+            console.log(data);
+            if (data.success) {
+                setIsCoursePurchased(data.enrolledCourses.some(course => course._id === id));
+                console.log(isCoursePurchased)
             }
         } catch (error) {
             console.log(error);
@@ -53,12 +72,20 @@ const CourseDetails = () => {
     }
     useEffect(() => {
         getCourseDetails();
+        getEnrolledCourses();
     }, []);
 
     //to check if user is logged in or not
     const authCheck = () => {
         if (isLogin) {
-            navigate(`/enroll/${id}`);
+            console.log(isCoursePurchased);
+            if (!isCoursePurchased) {
+                navigate(`/enroll/${id}`);
+            } else {
+                toast("You have already purchased this course", {
+                    icon: '⚠️',
+                });
+            }
         } else {
             toast("You need to login to purchase", {
                 icon: '⚠️',
@@ -92,8 +119,12 @@ const CourseDetails = () => {
                         <p className="text-lg max-w-2xl text-justify text-gray-700 mb-4">{inputs.description}</p>
                     </div>
                     <div>
+                        { }
                         <p className="text-black mb-4">Enrollment: <span className='text-black font-semibold'>{inputs.enrollment_status}</span></p>
-                        <button onClick={authCheck} className="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded-full">
+                        <button
+                            onClick={authCheck}
+                            className="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded-full"
+                        >
                             Buy now
                         </button>
                     </div>
