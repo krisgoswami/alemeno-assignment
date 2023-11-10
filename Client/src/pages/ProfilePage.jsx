@@ -91,7 +91,7 @@ const ProfilePage = () => {
                         name="name"
                         value={inputs.name}
                         onChange={handleInputChange}
-                        className="w-full sm:w-1/2 border border-gray-300 rounded px-4 py-2"
+                        className="w-full sm:w-full border border-gray-300 rounded px-4 py-2"
                     />
                 </div>
                 <div className="mb-4">
@@ -101,7 +101,7 @@ const ProfilePage = () => {
                         name="email"
                         value={inputs.email}
                         disabled={true}
-                        className="w-full sm:w-1/2 border border-gray-300 rounded px-4 py-2"
+                        className="w-full sm:w-full border border-gray-300 rounded px-4 py-2"
                     />
                 </div>
                 <div className="mb-4">
@@ -111,7 +111,7 @@ const ProfilePage = () => {
                         name="password"
                         value={inputs.password}
                         onChange={handleInputChange}
-                        className="w-full sm:w-1/2 border border-gray-300 rounded px-4 py-2"
+                        className="w-full sm:w-full border border-gray-300 rounded px-4 py-2"
                     />
                 </div>
                 <button
