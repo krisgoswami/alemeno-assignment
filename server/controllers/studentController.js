@@ -222,7 +222,6 @@ export const completedCourses = async (req, res) => {
             }
             else if (user.enrolledCourses.some(course => course._id.toString() === courseId)) {
                 user.completedCourses.push(course);
-                user.enrolledCourses.pull(course);
                 await user.save();
                 res.status(200).send({
                     message: "Course marked as completed",
