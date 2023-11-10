@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { BASE_URL } from '../utils/helper';
-import CourseCard from '../components/CourseCard';
+import { CompletedCourseCard } from '../components/CourseCard';
 
 const Search = () => {
     const location = useLocation();
@@ -38,9 +38,10 @@ const Search = () => {
                 <div className="flex flex-wrap">
                     {searchResults?.map((course) => (
                         <div key={course?._id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mx-4 my-4">
-                            <CourseCard
+                            <CompletedCourseCard
                                 id={course?._id}
                                 title={course?.title}
+                                instructor={course?.instructor}
                                 description={course?.description}
                                 price={course?.price}
                                 thumbnail={course?.thumbnail}
