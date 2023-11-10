@@ -5,10 +5,10 @@ import { Course } from '../models/courseModel.js';
 // *********admin registration*********
 
 export const createAdmin = async (req, res) => {
-    const { email, password } = req.body;
+    const { name, email, password } = req.body;
     try {
         //validations
-        if (!email || !password) {
+        if (!name || !email || !password) {
             return res.status(400).send({
                 message: 'fill all fields',
                 success: false,
@@ -26,6 +26,7 @@ export const createAdmin = async (req, res) => {
 
         //saving admin to the database
         const admin = new Admin({
+            name: name,
             email: email,
             password: password,
         });
