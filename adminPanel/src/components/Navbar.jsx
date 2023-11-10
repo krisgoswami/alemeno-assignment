@@ -11,20 +11,6 @@ const Navbar = () => {
     isLogin = isLogin || localStorage.getItem('userId');
 
     let user = localStorage.getItem("username");
-    let userId = localStorage.getItem("userId");
-
-    // const [searchQuery, setSearchQuery] = useState('');
-    // const handleInputChange = (e) => {
-    //     setSearchQuery(e.target.value);
-    // };
-
-    // const handleSearch = (e) => {
-    //     e.preventDefault();
-    //     if (searchQuery.trim() !== '') {
-    //         navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
-    //     }
-    // };
-
 
     const navigate = useNavigate();
     const dispatch = useDispatch();

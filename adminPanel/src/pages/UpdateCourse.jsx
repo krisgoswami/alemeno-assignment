@@ -11,7 +11,6 @@ const UpdateCourse = () => {
     const navigate = useNavigate();
     const id = useParams().id;
     const token = localStorage.getItem('token');
-    // const email = localStorage.getItem('email');
 
     const [inputs, setInputs] = useState({});
     const [course, setCourse] = useState({});
@@ -37,7 +36,7 @@ const UpdateCourse = () => {
         setSyllabus([...syllabus, { week: "", topic: "", content: "" }]);
     };
 
-    // Function to remove a syllabus item
+    // function to remove a syllabus item
     const removeSyllabusItem = (index) => {
         const updatedSyllabus = syllabus.filter((item, i) => i !== index);
         setSyllabus(updatedSyllabus);
@@ -110,7 +109,7 @@ const UpdateCourse = () => {
 
         try {
             if (token) {
-                const formData = new FormData(); // FormData object to send files
+                const formData = new FormData();
 
                 const syllabusJSON = JSON.stringify(syllabus);
                 // console.log(syllabus);
@@ -140,7 +139,6 @@ const UpdateCourse = () => {
                         'Content-Type': 'application/json',
                     }
                 });
-                // console.log(data);
                 if (data.success) {
                     toast.success("Course updated");
                     navigate('/home');

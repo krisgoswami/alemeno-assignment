@@ -63,14 +63,14 @@ const CreateCourse = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // if (!inputs.title || !inputs.instructor || !inputs.price || !inputs.thumbnail) {
-        //     toast.error("Fields cannot be empty");
-        //     return;
-        // }
+        if (!inputs.title || !inputs.instructor || !inputs.price || !inputs.thumbnail) {
+            toast.error("Fields cannot be empty");
+            return;
+        }
 
         try {
             if (token) {
-                const formData = new FormData(); // FormData object to send files
+                const formData = new FormData();
 
                 const syllabusJSON = JSON.stringify(syllabus);
                 // console.log(syllabus);
@@ -84,7 +84,6 @@ const CreateCourse = () => {
                 formData.append('schedule', inputs.schedule);
                 formData.append('location', inputs.location);
                 formData.append('published', inputs.published);
-                // formData.append('syllabus', new Blob([syllabus], { type: 'application/json' }));
                 formData.append('syllabus', syllabusJSON);
 
                 // Convert comma-separated pre-requisites to an array of strings
@@ -101,7 +100,6 @@ const CreateCourse = () => {
                         'Content-Type': 'application/json',
                     }
                 });
-                // console.log(data);
                 if (data.success) {
                     toast.success("Course created");
                     navigate('/home');

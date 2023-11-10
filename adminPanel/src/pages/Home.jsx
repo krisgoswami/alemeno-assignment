@@ -17,7 +17,6 @@ const Home = () => {
                     'Authorization': `Bearer ${token}`,
                 }
             });
-            // console.log("data is", data);
             if (data.success) {
                 setCourses(data.courses);
             }

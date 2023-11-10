@@ -54,7 +54,7 @@ const CourseDetails = () => {
                         src={inputs.thumbnail}
                         className="cursor-pointer"
                         alt={'thumbnail'}
-                        style={{ maxWidth: '350px', height: '200px', margin: "2px" }} // Set max width and height for thumbnail
+                        style={{ maxWidth: '350px', height: '200px', margin: "2px" }}
                     />
                 </div>
                 <p className="text-lg mb-2">Instructor: {inputs.instructor}</p>
