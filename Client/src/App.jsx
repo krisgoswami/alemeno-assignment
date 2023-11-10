@@ -14,6 +14,7 @@ import CourseDetails from './pages/CourseDetails';
 import Purchase from './pages/Purchase';
 import EnrolledCourses from './pages/EnrolledCourses';
 import ProfilePage from './pages/ProfilePage';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -36,7 +37,7 @@ function App() {
             <Route path="/profile/:id" element={<ProfilePage />} />
           </Routes>
         </Router>
-        {/* <Footer /> */}
+        <Footer />
       </Provider>
     </>
   )

@@ -8,8 +8,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 const ImageSlider = () => {
     const carouselStyle = {
         width: '60%',
-        margin: '0 auto',
-        marginTop: '5%',
+        margin: 'auto auto',
         overflow: 'hidden',
         borderRadius: '8px',
         border: '0px solid black',

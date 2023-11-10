@@ -178,3 +178,30 @@ export const CoursesCard = ({ id, title, instructor, description, price, enrollm
         </div>
     )
 }
+
+//****************************homepage course card**************************
+
+export const HomeCard = ({ id, title, instructor, description, price, enrollment_status, thumbnail }) => {
+
+    const navigate = useNavigate();
+
+    return (
+        <div
+            className="flex flex-col justify-between bg-slate-50 w-80 h-[400px] p-4 shadow-md rounded-2xl mb-10 transform transition-transform hover:scale-105 cursor-pointer"
+            onClick={() => {
+                navigate(`/course/${id}`);
+            }}
+        >
+            <div className='flex flex-col'>
+                <img src={thumbnail} alt={''} className="w-full h-40 object-cover mb-4 rounded-md" />
+                <h3 className="text-lg text-black font-medium mb-1 max-h-24 truncate overflow-hidden">{title}</h3>
+                <p className="text-gray-700 mb-2 font-normal text-sm ">by <span className='font-semibold'>{instructor}</span></p>
+                <p className="text-sm text-black mb-2 max-h-24 overflow-hidden">{description}</p>
+            </div>
+
+            <div className='flex flex-col'>
+                <p className="text-black mb-4">Enrollment: <span className='text-black font-semibold'>{enrollment_status}</span></p>
+            </div>
+        </div>
+    );
+};
