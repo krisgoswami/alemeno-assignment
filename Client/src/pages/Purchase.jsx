@@ -85,7 +85,7 @@ const Purchase = () => {
         }
     }
     return (
-        <div className="container w-2/6 mx-auto h-screen p-8 mt-20">
+        <div className="container mx-auto px-4 md:w-2/3 lg:w-1/2 xl:w-1/3 h-screen p-8 mt-20">
             <h2 className="text-2xl font-bold mb-8">Purchase Course</h2>
 
             <form onSubmit={handlePurchase}>
@@ -106,8 +106,8 @@ const Purchase = () => {
                 </div>
 
                 {/* Expiry Date */}
-                <div className="flex mb-4">
-                    <div className="w-1/2 mr-2">
+                <div className="flex flex-col md:flex-row mb-4">
+                    <div className="w-full md:w-1/2 md:mr-2 mb-2 md:mb-0">
                         <label htmlFor="expiryMonth" className="block text-gray-700 font-bold mb-2">
                             Expiry Month
                         </label>
@@ -121,7 +121,7 @@ const Purchase = () => {
                             placeholder="MM"
                         />
                     </div>
-                    <div className="w-1/2 ml-2">
+                    <div className="w-full md:w-1/2 md:ml-2">
                         <label htmlFor="expiryYear" className="block text-gray-700 font-bold mb-2">
                             Expiry Year
                         </label>
@@ -167,6 +167,7 @@ const Purchase = () => {
                 </button>
             </form>
         </div>
+
     )
 }
 

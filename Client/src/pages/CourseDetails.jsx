@@ -100,26 +100,24 @@ const CourseDetails = () => {
     };
 
     return (
-        <div className="max-w-full h-full ml-64 p-10 flex mt-20">
+        <div className="max-w-full p-4 mt-20 flex flex-col items-center md:flex-row md:ml-64">
             {/* Product Image */}
-            <div className="w-2/5 pr-8 mr-10">
+            <div className="w-full md:w-2/5 pr-8 mb-4 md:mr-10">
                 <img
                     src={inputs.thumbnail}
                     alt="Product"
                     className="w-full h-auto rounded-lg"
                 />
             </div>
-            <div className='flex flex-col'>
-                <div className='flex flex-col border border-gray-300 p-6 rounded-lg h-1/2  mb-4 shadow-md justify-between'>
-                    <div className='flex flex-col'>
-                        {/* <div className="w-full mr-20"> */}
+            <div className="flex flex-col w-full md:w-1/2">
+                <div className="border border-gray-300 p-6 rounded-lg mb-4 shadow-md">
+                    <div className="flex flex-col">
                         <h1 className="text-3xl max-w-3xl font-semibold mb-2">{inputs.title}</h1>
                         <h1 className="text-xl text-gray-700 font-semibold mb-4">by {inputs.instructor}</h1>
                         <div className="text-xl font-bold mb-5">₹ {inputs.price}</div>
                         <p className="text-lg max-w-2xl text-justify text-gray-700 mb-4">{inputs.description}</p>
                     </div>
                     <div>
-                        { }
                         <p className="text-black mb-4">Enrollment: <span className='text-black font-semibold'>{inputs.enrollment_status}</span></p>
                         <button
                             onClick={authCheck}
@@ -129,13 +127,13 @@ const CourseDetails = () => {
                         </button>
                     </div>
                 </div>
-                <div className='flex flex-col border h-full border-gray-300 p-6 rounded-lg  mb-4 shadow-md'>
-                    <div className='mb-4'>
+                <div className="border border-gray-300 p-6 rounded-lg mb-4 shadow-md">
+                    <div className="mb-4">
                         <label className="text-black text-lg font-semibold">Duration:</label>
                         <p className='text-black'>{inputs.duration}</p>
                     </div>
                     <div className='mb-4'>
-                        <label className="text-black text-lg  font-semibold">Requirements:</label>
+                        <label className="text-black text-lg font-semibold">Requirements:</label>
                         {inputs.prerequisites?.map((req, index) =>
                             <div key={index} className="">
                                 <p className='text-black'>- {req}</p>

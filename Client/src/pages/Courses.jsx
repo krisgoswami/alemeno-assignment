@@ -34,7 +34,7 @@ const Courses = () => {
 
     return (
         <div className='flex flex-col h-full p-4 mt-20'>
-            <div className="mx-10 mb-4">
+            <div className="mx-4 mb-4 md:mx-10 md:mb-4">
                 <label className="block text-gray-700 mb-2">Courses per page:</label>
                 <input
                     type="number"
@@ -44,7 +44,7 @@ const Courses = () => {
                 />
             </div>
             {currentCourses?.map((course) =>
-                <div key={course?._id} className="mx-10 mt-4">
+                <div key={course?._id} className="mx-4 md:mx-10 mt-4">
                     <CoursesCard
                         id={course?._id}
                         title={course?.title}
@@ -58,7 +58,7 @@ const Courses = () => {
             )}
 
             {/* Pagination controls */}
-            <div className="mt-4 mx-10">
+            <div className="mt-4 mx-4 md:mx-10">
                 <button
                     onClick={() => paginate(currentPage - 1)}
                     disabled={currentPage === 1}
@@ -75,6 +75,7 @@ const Courses = () => {
                 </button>
             </div>
         </div>
+
     )
 }
 

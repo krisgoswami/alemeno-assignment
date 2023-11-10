@@ -30,32 +30,30 @@ const Search = () => {
     }, [query]);
 
     return (
-        <div className="container mx-auto py-8 h-screen mt-20">
+        <div className="container mx-auto py-8 h-full mt-20">
             <h2 className="text-3xl font-bold mb-10">Search Results for "{query}"</h2>
             {loading ? (
                 <div className="text-center">Loading...</div>
             ) : (
-                <>
-                    <div className='flex'>
-                        {searchResults?.map((course) => (
-                            <div key={course?._id} className="mx-10 mt-4">
-                                <CourseCard
-                                    id={course?._id}
-                                    title={course?.title}
-                                    description={course?.description}
-                                    price={course?.price}
-                                    thumbnail={course?.thumbnail}
-                                />
-                            </div>
-                        ))}
-                        {searchResults.length === 0 &&
-                            <p>There are no results to show for "{query}"</p>
-                        }
-                    </div>
-                </>
+                <div className="flex flex-wrap">
+                    {searchResults?.map((course) => (
+                        <div key={course?._id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mx-4 my-4">
+                            <CourseCard
+                                id={course?._id}
+                                title={course?.title}
+                                description={course?.description}
+                                price={course?.price}
+                                thumbnail={course?.thumbnail}
+                            />
+                        </div>
+                    ))}
+                    {searchResults.length === 0 && (
+                        <p className="w-full text-center">There are no results to show for "{query}"</p>
+                    )}
+                </div>
             )}
-
         </div>
+
     );
 }
 

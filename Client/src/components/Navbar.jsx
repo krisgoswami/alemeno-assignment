@@ -41,7 +41,7 @@ const Navbar = () => {
             toast("You've been logged out", {
                 icon: '⚠️',
             });
-            navigate('/login');
+            navigate('/');
         } catch (error) {
             console.log(error);
         }

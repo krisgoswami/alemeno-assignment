@@ -49,6 +49,7 @@ const Home = () => {
 
     return (
         <div className='relative'>
+            {/* Welcome Section */}
             <div className='bg-gray-200 h-96 flex flex-col justify-center mb-8 p-10 mt-14'>
                 <h2 className='text-3xl font-semibold mb-4 text-center'>Welcome to Alemeno Courses</h2>
                 <p className='text-lg text-center'>
@@ -56,13 +57,14 @@ const Home = () => {
                 </p>
             </div>
 
+            {/* Image Slider */}
             <div className='p-5'>
                 <ImageSlider />
             </div>
 
             {/* Scroll Buttons */}
-            <div className="flex w-full absolute z-10 justify-between mt-72">
-                <button onClick={() => handleScroll('left')} className=" text-white m-1 rounded-full">
+            <div className="hidden sm:flex w-full absolute z-10 justify-between mt-72">
+                <button onClick={() => handleScroll('left')} className="text-white m-1 rounded-full">
                     <img className='w-10' src="../src/assets/images/la.svg" alt="left arrow" />
                 </button>
                 <button onClick={() => handleScroll('right')} className="text-white m-1 rounded-full">
@@ -70,24 +72,23 @@ const Home = () => {
                 </button>
             </div>
 
-
             {/* Section for Courses */}
             <div className='bg-gray-200'>
                 <div className='flex justify-between'>
-                    <p className='font-bold text-xl pt-10 pl-10'>Featured courses</p>
+                    <p className='font-bold text-xl pt-10 pl-4 sm:pl-10'>Featured courses</p>
                     <p
                         onClick={() => {
                             navigate(`/courses`);
                         }}
-                        className='font-semibold text-md text-blue-500 hover:underline cursor-pointer pt-10 pr-10'
+                        className='font-semibold text-md text-blue-500 hover:underline cursor-pointer pt-10 pr-4 sm:pr-10'
                     >
                         See all courses
                     </p>
                 </div>
-                <div id="groundContainer" className="flex mx-4 sm:mx-16 my-8 overflow-x-auto justify-between relative">
-                    <div className="flex justify-between my-5 gap-8" style={{ transform: `translateX(-${scrollPosition}px)`, transition: 'transform 0.3s' }}>
+                <div id="groundContainer" className="flex mx-2 sm:mx-16 my-8 overflow-x-auto sm:overflow-hidden justify-between relative">
+                    <div className="flex justify-between my-5 gap-2 sm:gap-8" style={{ transform: `translateX(-${scrollPosition}px)`, transition: 'transform 0.3s' }}>
                         {randomizedCourses?.slice(0, 6).map((course) => (
-                            <div key={course._id} className='mb-8'>
+                            <div key={course._id} className='mb-8 sm:mb-0'>
                                 <HomeCard
                                     id={course?._id}
                                     title={course?.title}
@@ -103,6 +104,7 @@ const Home = () => {
                 </div>
             </div>
         </div>
+
     );
 };
 

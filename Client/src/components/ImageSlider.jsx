@@ -37,27 +37,25 @@ const ImageSlider = () => {
     }, []);
 
     return (
-        <center>
-            <div style={carouselStyle}>
-                <Carousel
-                    showThumbs={false}
-                    swipeable={true}
-                    showArrows={true}
-                    autoPlay={true}
-                    emulateTouch={true}
-                    showStatus={false}
-                    swipeScrollTolerance={50}
-                    useKeyboardArrows={true}
-                    infiniteLoop={true}
-                >
-                    {courses?.map((item, index) => (
-                        <div key={index}>
-                            <img src={item.thumbnail} alt={`Image ${index + 1}`} style={imageStyle} />
-                        </div>
-                    ))}
-                </Carousel>
-            </div>
-        </center>
+        <div style={carouselStyle}>
+            <Carousel
+                showThumbs={false}
+                swipeable={true}
+                showArrows={true}
+                autoPlay={true}
+                emulateTouch={true}
+                showStatus={false}
+                swipeScrollTolerance={50}
+                useKeyboardArrows={true}
+                infiniteLoop={true}
+            >
+                {courses?.map((item, index) => (
+                    <div key={index}>
+                        <img src={item.thumbnail} alt={`Image ${index + 1}`} style={imageStyle} />
+                    </div>
+                ))}
+            </Carousel>
+        </div>
     );
 };
 

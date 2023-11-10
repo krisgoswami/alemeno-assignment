@@ -83,7 +83,7 @@ const ProfilePage = () => {
     return (
         <div className="h-screen p-8 mt-20">
             <h2 className="text-2xl font-bold mb-4">Edit Profile</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="max-w-md mx-auto">
                 <div className="mb-4">
                     <label className="block text-gray-700 mb-2">Username</label>
                     <input
@@ -91,7 +91,7 @@ const ProfilePage = () => {
                         name="name"
                         value={inputs.name}
                         onChange={handleInputChange}
-                        className="w-1/2 border border-gray-300 rounded px-4 py-2"
+                        className="w-full sm:w-1/2 border border-gray-300 rounded px-4 py-2"
                     />
                 </div>
                 <div className="mb-4">
@@ -101,7 +101,7 @@ const ProfilePage = () => {
                         name="email"
                         value={inputs.email}
                         disabled={true}
-                        className="w-1/2 border border-gray-300 rounded px-4 py-2"
+                        className="w-full sm:w-1/2 border border-gray-300 rounded px-4 py-2"
                     />
                 </div>
                 <div className="mb-4">
@@ -111,17 +111,18 @@ const ProfilePage = () => {
                         name="password"
                         value={inputs.password}
                         onChange={handleInputChange}
-                        className="w-1/2 border border-gray-300 rounded px-4 py-2"
+                        className="w-full sm:w-1/2 border border-gray-300 rounded px-4 py-2"
                     />
                 </div>
                 <button
                     type="submit"
-                    className="bg-cyan-500 hover:bg-cyan-700 text-white py-2 rounded-lg px-4"
+                    className="bg-cyan-500 hover:bg-cyan-700 text-white py-2 rounded-lg px-4 w-full"
                 >
                     Update
                 </button>
             </form>
         </div>
+
     )
 }
 
