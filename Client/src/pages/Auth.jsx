@@ -95,7 +95,7 @@ const Auth = () => {
 
     return (
         <div className="flex flex-col lg:flex-row lg:h-screen">
-            {/* Left side with image and text */}
+            {/* Left side */}
             <div className="lg:flex-1 bg-cyan-500 text-white p-12 flex items-center justify-center">
                 <div>
                     <h2 className="text-4xl font-bold mb-4 text-center lg:text-left">Alemeno Admin Panel</h2>
@@ -103,7 +103,7 @@ const Auth = () => {
                 </div>
             </div>
 
-            {/* Right side with login form */}
+            {/* Right side */}
             <div className="lg:flex-1 flex items-center justify-center p-12">
                 <form className="max-w-md w-full space-y-4">
                     <h2 className="text-2xl font-bold text-center">

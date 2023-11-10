@@ -10,7 +10,7 @@ const Footer = () => {
                 </div>
                 <div className='lg:w-1/4 mx-5 lg:ml-48 mt-5 lg:mt-10'>
                     <p className='text-white text-lg font-bold mb-3'>Contact</p>
-                    <p className='text-white'>Email: <span className='text-cyan-500  hover:text-cyan-700 cursor-pointer'>JohnDoe@xyz.com</span></p>
+                    <p className='text-white'>Email: <span className='text-cyan-500  hover:text-cyan-700 cursor-pointer'>JohnnyDoe@xyz.com</span></p>
                 </div>
                 <div className='lg:w-1/4 mx-5 lg:mr-10 mt-5 lg:mt-10'>
                     <p className='text-white text-lg font-bold mb-3'>Links</p>

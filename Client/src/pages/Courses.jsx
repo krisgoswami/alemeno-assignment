@@ -56,6 +56,7 @@ const Courses = () => {
                     />
                 </div>
             )}
+
             {/* Pagination controls */}
             <div className="mt-4 mx-10">
                 <button

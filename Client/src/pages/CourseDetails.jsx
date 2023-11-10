@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from "react-router-dom";
 import { BASE_URL } from '../utils/helper';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
 
 const CourseDetails = () => {
@@ -75,7 +75,7 @@ const CourseDetails = () => {
         getEnrolledCourses();
     }, []);
 
-    //to check if user is logged in or not
+    //to check if user is logged in or not and is course purchased or not
     const authCheck = () => {
         if (isLogin) {
             console.log(isCoursePurchased);

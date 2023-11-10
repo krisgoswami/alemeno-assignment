@@ -36,7 +36,7 @@ const Home = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
     const handleScroll = (direction) => {
         const container = document.getElementById('groundContainer');
-        const cardWidth = 350; // Adjust this value based on your card width
+        const cardWidth = 350; //adjust as per card width
         const totalWidth = courses.length * cardWidth;
         const maxScroll = totalWidth - container.offsetWidth;
 
@@ -71,7 +71,7 @@ const Home = () => {
             </div>
 
 
-            {/* Different Sections for Courses */}
+            {/* Section for Courses */}
             <div className='bg-gray-200'>
                 <div className='flex justify-between'>
                     <p className='font-bold text-xl pt-10 pl-10'>Featured courses</p>

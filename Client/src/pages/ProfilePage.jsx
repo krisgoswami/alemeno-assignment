@@ -55,7 +55,7 @@ const ProfilePage = () => {
 
         try {
             if (token) {
-                const formData = new FormData(); // FormData object to send files
+                const formData = new FormData();
 
                 formData.append('name', inputs.name);
                 formData.append('password', inputs.password);

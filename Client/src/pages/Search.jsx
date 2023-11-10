@@ -14,7 +14,7 @@ const Search = () => {
     const getResults = async () => {
         try {
             const { data } = await axios.get(`${BASE_URL}/api/v1/user/search`, {
-                params: { q: query }, // Passing the search query as a parameter 
+                params: { q: query }, //passing the search query as a parameter 
             });
             if (data.success) {
                 setSearchResults(data.courses);
@@ -22,7 +22,7 @@ const Search = () => {
         } catch (error) {
             console.log(error);
         } finally {
-            setLoading(false);  // Set loading to false when data is loaded
+            setLoading(false);  //set loading to false when data is loaded
         }
     }
     useEffect(() => {

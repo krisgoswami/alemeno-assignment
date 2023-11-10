@@ -81,6 +81,7 @@ const Purchase = () => {
         }
         catch (error) {
             console.log(error);
+            toast.error("Something went wrong. Check log.");
         }
     }
     return (
