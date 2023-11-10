@@ -5,28 +5,90 @@ import axios from 'axios';
 import { BASE_URL } from '../utils/helper';
 import toast from 'react-hot-toast';
 
-const CourseCard = ({ id, title, instructor, description, price, enrollment_status, thumbnail }) => {
+const CourseCard = ({ id, title, instructor, thumbnail, isCompleted }) => {
 
     const navigate = useNavigate();
+    const token = localStorage.getItem('token');
+    const email = localStorage.getItem('email');
+
+    //handle mark complete
+    const handleMarkComplete = async () => {
+        try {
+            const { data } = await axios.post(`${BASE_URL}/api/v1/user/markComplete/${id}`, {}, {
+                headers: {
+                    'email': email,
+                    'Authorization': `Bearer ${token}`,
+                }
+            });
+            console.log(data);
+            if (data.success) {
+                toast.success("You marked this course as complete.")
+                location.reload();
+            }
+        } catch (error) {
+            console.log(error);
+            toast.error("Already marked as complete.")
+        }
+    }
 
     return (
-        <div className="bg-cyan-200 w-80 max-h-[450px] h-[500px] p-4 shadow-md rounded-2xl">
+        <div className="bg-slate-50 w-80 h-[400px] p-4 shadow-md rounded-2xl mb-10">
             <img src={thumbnail} alt={''} className="w-full h-40 object-cover mb-4 rounded-md" />
-            <h3 className="text-xl text-black font-medium mb-2 truncate max-h-24 overflow-hidden">{title}</h3>
-            <p className="text-gray-700 mb-2 font-normal h-20 ">{description}</p>
-            <p className="text-gray-700 mb-2 font-bold text-xl mt-8">₹ <span className='font-semibold'>{price}</span></p>
-            <button
-                onClick={() => {
-                    navigate(`/course/${id}`);
-                }}
-                className="bg-cyan-500 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg mt-2">
-                View
-            </button>
+            <h3 className="text-xl text-black font-medium mb-2 max-h-24 truncate overflow-hidden">{title}</h3>
+            <p className="text-gray-700 mb-2 font-normal text-lg mt-4">by <span className='font-semibold'>{instructor}</span></p>
+            <div className='flex justify-between'>
+                <button
+                    onClick={() => {
+                        navigate(`/course/${id}`);
+                    }}
+                    className="bg-cyan-500 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg mt-10">
+                    View
+                </button>
+                {/* {!isCompleted && <button
+                    onClick={handleMarkComplete}
+                    className="bg-cyan-500 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg mt-10"
+                >
+                    Mark as complete
+                </button>
+                } */}
+                <button
+                    onClick={handleMarkComplete}
+                    className="bg-cyan-500 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg mt-10"
+                >
+                    Mark as complete
+                </button>
+            </div>
         </div>
     );
 };
 
 export default CourseCard;
+
+//****************************completed course card**************************
+
+export const CompletedCourseCard = ({ id, title, instructor, description, price, enrollment_status, thumbnail }) => {
+
+    const navigate = useNavigate();
+
+    return (
+        <div className="bg-slate-50 w-80 h-[400px] p-4 shadow-md rounded-2xl mb-10">
+            <img src={thumbnail} alt={''} className="w-full h-40 object-cover mb-4 rounded-md" />
+            <h3 className="text-xl text-black font-medium mb-2 max-h-24 truncate overflow-hidden">{title}</h3>
+            <p className="text-gray-700 mb-2 font-normal text-lg mt-4">by <span className='font-semibold'>{instructor}</span></p>
+            <div className='flex justify-between'>
+                <button
+                    onClick={() => {
+                        navigate(`/course/${id}`);
+                    }}
+                    className="bg-cyan-500 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg mt-10">
+                    View
+                </button>
+            </div>
+        </div>
+    );
+};
+
+//****************************dashboard course card**************************
 
 export const DashboardCard = ({ id, title, instructor, description, price, enrollment_status, thumbnail }) => {
 
@@ -88,6 +150,8 @@ export const DashboardCard = ({ id, title, instructor, description, price, enrol
         </div>
     );
 };
+
+//****************************courses page course card**************************
 
 export const CoursesCard = ({ id, title, instructor, description, price, enrollment_status, thumbnail }) => {
     const navigate = useNavigate();
