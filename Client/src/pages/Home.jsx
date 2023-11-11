@@ -50,12 +50,18 @@ const Home = () => {
     return (
         <div className='relative'>
             {/* Welcome Section */}
-            <div className='bg-gray-200 h-96 flex flex-col justify-center mb-8 p-10 mt-14'>
-                <h2 className='text-3xl font-semibold mb-4 text-center'>Welcome to Alemeno Courses</h2>
-                <p className='text-lg text-center'>
+            <div className='relative bg-gray-200 h-96 flex flex-col justify-center mb-8 p-5 sm:p-10 md:p-20 mt-14'>
+                <img src='../src/assets/images/background.jpg' alt='Background' className='absolute inset-0 w-full h-full object-cover' />
+                <div className="absolute inset-0 bg-black opacity-80"></div>
+                <h2 className='absolute text-white text-xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl inset-0 mb-10 sm:mb-10 flex items-center justify-center z-30'>Welcome to Alemeno Courses</h2>
+                <p className='absolute text-white text-base sm:text-sm md:text-md lg:text-md xl:text-xl inset-0 mt-10 sm:mt-10 flex items-center justify-center text-center z-30'>
                     Explore a wide range of courses to enhance your knowledge and skills. Start your learning journey with Alemeno Courses.
                 </p>
             </div>
+
+
+
+
 
             {/* Image Slider */}
             <div className='p-5'>
