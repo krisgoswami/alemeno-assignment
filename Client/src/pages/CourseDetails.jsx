@@ -100,7 +100,7 @@ const CourseDetails = () => {
     };
 
     return (
-        <div className="max-w-full p-4 mt-20 flex flex-col items-start md:flex-row md:ml-52">
+        <div className="max-w-full p-4 mt-10 flex flex-col items-start md:flex-row md:ml-52">
             {/* Product Image */}
             <div className="w-full md:w-2/5 pr-8 mb-4 md:mr-10">
                 <img

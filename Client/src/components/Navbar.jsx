@@ -49,7 +49,7 @@ const Navbar = () => {
 
 
     return (
-        <nav className="fixed z-10 top-0 left-0 right-0 bg-cyan-500 p-4">
+        <nav className="z-40 top-0 left-0 right-0 bg-cyan-500 p-4">
             <div className="container mx-auto">
                 <div className="flex justify-between items-center">
                     <div className="text-white font-bold text-xl cursor-pointer" onClick={() => { navigate('/') }}>Alemeno</div>

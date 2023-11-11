@@ -153,7 +153,7 @@ export const CoursesCard = ({ id, title, instructor, description, price, enrollm
             <div className="md:flex-shrink-0 md:w-96 h-56 mb-4 md:mb-0">
                 <img src={thumbnail} alt={''} className="ml-4 w-full h-full object-cover rounded-md" />
             </div>
-            <div className="md:ml-6">
+            <div className="md:ml-16">
                 <h2 className="text-3xl font-bold mb-4">{title}</h2>
                 <p className="text-gray-700 mb-4">Instructor: <span className='text-black font-bold'>{instructor}</span></p>
                 <p className="text-gray-700 mb-4 text-lg text-justify">{description}</p>

@@ -54,8 +54,8 @@ const EnrolledCourses = () => {
 
 
     return (
-        <div className="flex flex-col h-full p-4 mt-20">
-            <h2 className="text-xl font-bold mb-6 md:mb-10 ml-4 md:ml-10">Student Dashboard</h2>
+        <div className="flex flex-col h-full p-4 mt-10">
+            <h2 className="text-3xl font-bold mb-6 md:mb-10 ml-4 md:ml-10">Student Dashboard</h2>
             <h2 className="text-xl font-semibold mb-2 md:mb-4 ml-4 md:ml-10">Enrolled</h2>
             <div className='flex flex-col md:flex-row flex-wrap justify-start'>
                 {enrolledCoursesWithoutCompleted?.map((course) =>

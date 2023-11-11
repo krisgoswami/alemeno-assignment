@@ -81,8 +81,8 @@ const ProfilePage = () => {
     }
 
     return (
-        <div className="h-screen p-8 mt-20">
-            <h2 className="text-2xl font-bold mb-4">Edit Profile</h2>
+        <div className="h-screen p-8 mt-10">
+            <h2 className="text-2xl font-bold mb-4 text-center">Edit Profile</h2>
             <form onSubmit={handleSubmit} className="max-w-md mx-auto">
                 <div className="mb-4">
                     <label className="block text-gray-700 mb-2">Username</label>

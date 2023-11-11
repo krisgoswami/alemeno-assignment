@@ -50,7 +50,7 @@ const Home = () => {
     return (
         <div className='relative'>
             {/* Welcome Section */}
-            <div className='relative bg-gray-200 h-96 flex flex-col justify-center mb-8 p-5 sm:p-10 md:p-20 mt-14'>
+            <div className='relative bg-gray-200 h-96 flex flex-col justify-center mb-8 p-5 sm:p-10 md:p-20'>
                 <img src='../src/assets/images/background.jpg' alt='Background' className='absolute inset-0 w-full h-full object-cover' />
                 <div className="absolute inset-0 bg-black opacity-80"></div>
                 <h2 className='absolute text-white text-xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl inset-0 mb-10 sm:mb-10 flex items-center justify-center z-30'>Welcome to Alemeno Courses</h2>
