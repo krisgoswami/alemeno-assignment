@@ -46,5 +46,3 @@ Once the installations are complete, start the application using the following c
     ```
 
 This will initiate the development servers for the Admin Panel, Client, and Server components of the application.
-
-Feel free to customize the application according to your needs. If you encounter any issues or have questions, please refer to the documentation or seek assistance from the project maintainers.
