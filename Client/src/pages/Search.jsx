@@ -30,14 +30,14 @@ const Search = () => {
     }, [query]);
 
     return (
-        <div className="container mx-auto py-8 h-full mt-20">
+        <div className="p-10 h-screen dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')] bg-blend-multiply text-gray-800 dark:text-gray-50">
             <h2 className="text-3xl font-bold mb-10">Search Results for "{query}"</h2>
             {loading ? (
                 <div className="text-center">Loading...</div>
             ) : (
                 <div className="flex flex-wrap">
                     {searchResults?.map((course) => (
-                        <div key={course?._id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mx-4 my-4">
+                        <div key={course?._id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 my-4">
                             <CompletedCourseCard
                                 id={course?._id}
                                 title={course?.title}

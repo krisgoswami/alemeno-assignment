@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../assets/images/Logo.png'
+import logo from '../assets/images/company-logo.png'
 const Footer = () => {
 	return (
 		<footer className="dark:bg-gray-900 bg-gray-50  text-gray-800 dark:text-gray-50 w-full ">
@@ -13,11 +13,8 @@ const Footer = () => {
 							<img
 								src={logo}
 								className="h-8 mr-3"
-								alt="DevSikShaHub Logo"
+								alt="Alemeno Logo"
 							/>
-							<span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-								Alemeno Courses
-							</span>
 						</a>
 					</div>
 					<div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

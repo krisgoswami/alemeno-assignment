@@ -4,6 +4,7 @@ import { DarkThemeToggle } from 'flowbite-react'
 import { useSelector, useDispatch } from 'react-redux';
 import { authActions } from '../redux/store';
 import toast from 'react-hot-toast';
+import logo from '../assets/images/company-logo.png';
 
 const Navbar = () => {
 
@@ -53,13 +54,15 @@ const Navbar = () => {
 		<nav className="z-40 top-0 left-0 right-0 bg-blue-100 text-gray-800 dark:bg-gray-800 dark:text-white p-4">
 			<div className="container mx-auto">
 				<div className="flex justify-between items-center">
-					<div className="font-bold text-xl cursor-pointer" onClick={() => { navigate('/') }}>Alemeno</div>
+					<div className="font-bold text-xl cursor-pointer" onClick={() => { navigate('/') }}>
+						<img src={logo} alt="alemeno logo" />
+					</div>
 					<div className="block lg:hidden">
 					</div>
 					<div className='flex'>
 						<div className="lg:flex items-center justify-between text-lg gap-4 mr-10">
-							<p className="font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/') }}>Home</p>
-							<p className="font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/courses') }}>Courses</p>
+							<p className="font-light text-base cursor-pointer hidden lg:block" onClick={() => { navigate('/') }}>Home</p>
+							<p className="font-light text-base cursor-pointer hidden lg:block" onClick={() => { navigate('/courses') }}>Courses</p>
 						</div>
 						<form onSubmit={handleSearch} className="flex items-center">
 							<input
@@ -118,7 +121,6 @@ const Navbar = () => {
 				</div>
 			</div>
 		</nav>
-
 	);
 };
 

@@ -32,21 +32,21 @@ const CourseCard = ({ id, title, instructor, thumbnail, isCompleted }) => {
     }
 
     return (
-        <div className="bg-slate-50 w-full md:w-80 h-[400px] p-4 shadow-md rounded-2xl mb-10">
+        <div className="bg-slate-50 dark:bg-gray-800 w-full md:w-80 h-[400px] p-4 shadow-md rounded-2xl mb-10">
             <img src={thumbnail} alt={''} className="w-full h-40 object-cover mb-4 rounded-md" />
-            <h3 className="text-xl text-black font-medium mb-2 max-h-24 truncate overflow-hidden">{title}</h3>
-            <p className="text-gray-700 mb-2 font-normal text-lg mt-4">by <span className='font-semibold'>{instructor}</span></p>
+            <h3 className="text-xl font-medium mb-2 max-h-24 truncate overflow-hidden">{title}</h3>
+            <p className="text-gray-700 dark:text-white mb-2 font-normal text-lg mt-4">by <span className='dark:text-yellow-200 font-semibold'>{instructor}</span></p>
             <div className='flex flex-col md:flex-row justify-between'>
                 <button
                     onClick={() => {
                         navigate(`/course/${id}`);
                     }}
-                    className="bg-cyan-500 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg mt-2 md:mt-0">
+                    className="bg-blue-500 hover:bg-blue-700 text-white dark:text-gray-700 font-semibold dark:bg-white hover:dark:bg-gray-200 px-4 py-2 rounded-lg mt-10 md:mt-10">
                     View
                 </button>
                 <button
                     onClick={handleMarkComplete}
-                    className="bg-cyan-500 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg mt-2 md:mt-0">
+                    className="bg-blue-500 hover:bg-blue-700 text-white dark:text-gray-700 font-semibold dark:bg-white hover:dark:bg-gray-200 px-4 py-2 rounded-lg mt-2 md:mt-10">
                     Mark as complete
                 </button>
             </div>
@@ -64,16 +64,16 @@ export const CompletedCourseCard = ({ id, title, instructor, description, price,
     const navigate = useNavigate();
 
     return (
-        <div className="bg-slate-50 w-80 h-[400px] p-4 shadow-md rounded-2xl mb-10">
+        <div className="bg-slate-50 dark:bg-gray-800 w-80 h-[400px] p-4 shadow-md rounded-2xl mb-10">
             <img src={thumbnail} alt={''} className="w-full h-40 object-cover mb-4 rounded-md" />
-            <h3 className="text-xl text-black font-medium mb-2 max-h-24 truncate overflow-hidden">{title}</h3>
-            <p className="text-gray-700 mb-2 font-normal text-lg mt-4">by <span className='font-semibold'>{instructor}</span></p>
+            <h3 className="text-xl font-medium mb-2 max-h-24 truncate overflow-hidden">{title}</h3>
+            <p className="text-gray-700 dark:text-white mb-2 font-normal text-lg mt-4">by <span className='dark:text-yellow-200 font-medium'>{instructor}</span></p>
             <div className='flex justify-between'>
                 <button
                     onClick={() => {
                         navigate(`/course/${id}`);
                     }}
-                    className="bg-cyan-500 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg mt-10">
+                    className="bg-blue-500 hover:bg-blue-700 text-white dark:text-gray-700 font-semibold dark:bg-white hover:dark:bg-gray-200 px-4 py-2 rounded-md mt-10">
                     View
                 </button>
             </div>
