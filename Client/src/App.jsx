@@ -22,10 +22,7 @@ function App() {
       <Provider store={store}>
         <Toaster />
         <Router>
-          <ShowNavbar>
-            <Navbar />
-          </ShowNavbar>
-
+          <Navbar />
           <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/login" element={<Auth />} />
