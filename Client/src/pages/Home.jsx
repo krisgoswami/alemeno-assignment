@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { HomeCard } from '../components/CourseCard';
+import Hero from '../components/Hero';
 
 const Home = () => {
     const [courses, setCourses] = useState([]);
@@ -48,20 +49,19 @@ const Home = () => {
     };
 
     return (
-        <div className='relative'>
+        <div className='relative dark:bg-gray-900 dark:text-gray-50'>
             {/* Welcome Section */}
-            <div className='relative bg-gray-200 h-96 flex flex-col justify-center mb-8 p-5 sm:p-10 md:p-20'>
+            {/* <div className='relative dark:bg-gray-900 dark:text-gray-50 bg-gray-200 h-96 flex flex-col justify-center mb-8 p-5 sm:p-10 md:p-20'>
                 <img src='../src/assets/images/background.jpg' alt='Background' className='absolute inset-0 w-full h-full object-cover' />
                 <div className="absolute inset-0 bg-black opacity-80"></div>
                 <h2 className='absolute text-white text-xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl inset-0 mb-10 sm:mb-10 flex items-center justify-center z-30'>Welcome to Alemeno Courses</h2>
                 <p className='absolute text-white text-base sm:text-sm md:text-md lg:text-md xl:text-xl inset-0 mt-10 sm:mt-10 flex items-center justify-center text-center z-30'>
                     Explore a wide range of courses to enhance your knowledge and skills. Start your learning journey with Alemeno Courses.
                 </p>
-            </div>
-
-
-
-
+            </div> */}
+            <>
+                <Hero />
+            </>
 
             {/* Image Slider */}
             <div className='p-5'>
@@ -79,19 +79,19 @@ const Home = () => {
             </div>
 
             {/* Section for Courses */}
-            <div className='bg-gray-200'>
+            <div className='bg-gray-200 dark:bg-gray-800 dark:text-gray-50'>
                 <div className='flex justify-between'>
                     <p className='font-bold text-xl pt-10 pl-4 sm:pl-10'>Featured courses</p>
                     <p
                         onClick={() => {
                             navigate(`/courses`);
                         }}
-                        className='font-semibold text-md text-blue-500 hover:underline cursor-pointer pt-10 pr-4 sm:pr-10'
+                        className='font-semibold text-md dark:text-yellow-200 text-blue-500 hover:underline cursor-pointer pt-10 pr-4 sm:pr-10'
                     >
                         See all courses
                     </p>
                 </div>
-                <div id="groundContainer" className="flex mx-2 sm:mx-16 my-8 overflow-x-auto sm:overflow-hidden justify-between relative">
+                <div id="courseContainer" className="flex mx-2 sm:mx-16 my-8 overflow-x-auto sm:overflow-hidden justify-between relative">
                     <div className="flex justify-between my-5 gap-2 sm:gap-8" style={{ transform: `translateX(-${scrollPosition}px)`, transition: 'transform 0.3s' }}>
                         {randomizedCourses?.slice(0, 6).map((course) => (
                             <div key={course._id} className='mb-8 sm:mb-0'>

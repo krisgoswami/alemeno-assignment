@@ -98,7 +98,7 @@ const Auth = () => {
             {/* Left side */}
             <div className="lg:flex-1 bg-cyan-500 text-white p-12 flex items-center justify-center">
                 <div>
-                    <h2 className="text-4xl font-bold mb-4 text-center lg:text-left">Alemeno Admin Panel</h2>
+                    <h2 className="text-4xl font-bold mb-4 text-center lg:text-left">Alemeno Courses</h2>
                     <p className="text-lg text-center lg:text-left">Login to access your account.</p>
                 </div>
             </div>
