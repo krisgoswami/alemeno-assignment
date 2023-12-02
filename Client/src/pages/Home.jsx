@@ -91,7 +91,7 @@ const Home = () => {
                         See all courses
                     </p>
                 </div>
-                <div id="courseContainer" className="flex mx-2 sm:mx-16 my-8 overflow-x-auto sm:overflow-hidden justify-between relative">
+                <div id="courseContainer" className="flex mx-2 sm:mx-16 overflow-x-auto sm:overflow-hidden justify-between relative">
                     <div className="flex justify-between my-5 gap-2 sm:gap-8" style={{ transform: `translateX(-${scrollPosition}px)`, transition: 'transform 0.3s' }}>
                         {randomizedCourses?.slice(0, 6).map((course) => (
                             <div key={course._id} className='mb-8 sm:mb-0'>

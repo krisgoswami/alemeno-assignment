@@ -71,7 +71,7 @@ const Navbar = () => {
 							/>
 							<button
 								type="submit"
-								className="dark:bg-white dark:text-gray-800 bg-blue-500 text-white font-bold py-2 px-4 rounded-md"
+								className="bg-blue-500 hover:bg-blue-700 text-white dark:bg-white hover:dark:bg-gray-200 dark:text-gray-700 font-bold py-2 px-4 rounded-md"
 							>
 								Search
 							</button>
@@ -82,7 +82,7 @@ const Navbar = () => {
 					</div>
 					<div className='flex items-center'>
 						{!isLogin &&
-							<button className="bg-white text-black font-bold px-4 py-2 rounded-md ml-20" onClick={handleLogin}>Login</button>
+							<button className="bg-blue-500 hover:bg-blue-700 text-white dark:bg-white hover:dark:bg-gray-200 dark:text-gray-700 font-bold px-4 py-2 rounded-md ml-20" onClick={handleLogin}>Login</button>
 						}
 						{isLogin &&
 							<div className="mx-auto flex items-center justify-center bg-none rounded-md">

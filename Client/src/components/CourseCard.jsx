@@ -149,22 +149,22 @@ export const DashboardCard = ({ id, title, instructor, description, price, enrol
 export const CoursesCard = ({ id, title, instructor, description, price, enrollment_status, thumbnail }) => {
     const navigate = useNavigate();
     return (
-        <div className="bg-slate-50 flex flex-col md:flex-row items-center border p-4 mb-4">
+        <div className="border shadow-md dark:border-none bg-gradient-to-b from-blue-50 to-transparent dark:from-gray-800 dark:text-white flex flex-col md:flex-row items-center p-4 mb-4 rounded-md">
             <div className="md:flex-shrink-0 md:w-96 h-56 mb-4 md:mb-0">
                 <img src={thumbnail} alt={''} className="ml-4 w-full h-full object-cover rounded-md" />
             </div>
             <div className="md:ml-16">
                 <h2 className="text-3xl font-bold mb-4">{title}</h2>
-                <p className="text-gray-700 mb-4">Instructor: <span className='text-black font-bold'>{instructor}</span></p>
-                <p className="text-gray-700 mb-4 text-lg text-justify">{description}</p>
-                <p className="text-black text-xl font-bold mb-4">{`₹ ${price}`}</p>
-                <p className="text-black mb-4">Enrollment: <span className='text-black font-semibold'>{enrollment_status}</span></p>
+                <p className="dark:text-gray-200 mb-4">Instructor: <span className='dark:text-yellow-300 font-bold'>{instructor}</span></p>
+                <p className="mb-4 text-lg text-justify">{description}</p>
+                <p className="text-xl font-bold mb-4">{`₹ ${price}`}</p>
+                <p className="mb-4">Enrollment: <span className='font-semibold'>{enrollment_status}</span></p>
 
                 <button
                     onClick={() => {
                         navigate(`/course/${id}`);
                     }}
-                    className="bg-cyan-500 hover:bg-cyan-700 text-white px-4 py-2 rounded-md">
+                    className="bg-blue-500 hover:bg-blue-700 text-white dark:text-gray-700 font-semibold dark:bg-white hover:dark:bg-gray-200 px-4 py-2 rounded-md">
                     View
                 </button>
             </div>
@@ -181,20 +181,20 @@ export const HomeCard = ({ id, title, instructor, description, price, enrollment
 
     return (
         <div
-            className="flex flex-col justify-between bg-slate-50 w-80 h-[400px] p-4 shadow-md rounded-2xl mb-10 transform transition-transform hover:scale-105 cursor-pointer"
+            className="flex flex-col justify-between bg-slate-50 dark:bg-gray-800 w-80 h-[400px] p-4 shadow-md rounded-2xl mb-10 transform transition-transform hover:scale-105 cursor-pointer"
             onClick={() => {
                 navigate(`/course/${id}`);
             }}
         >
             <div className='flex flex-col'>
                 <img src={thumbnail} alt={''} className="w-full h-40 object-cover mb-4 rounded-md" />
-                <h3 className="text-lg text-black font-medium mb-1 max-h-24 truncate overflow-hidden">{title}</h3>
-                <p className="text-gray-700 mb-2 font-normal text-sm ">by <span className='font-semibold'>{instructor}</span></p>
-                <p className="text-sm text-black mb-2 max-h-24 overflow-hidden">{description}</p>
+                <h3 className="text-lg font-medium mb-1 max-h-24 truncate overflow-hidden">{title}</h3>
+                <p className="text-gray-700 dark:text-slate-50 mb-2 font-normal text-sm">by <span className='dark:text-yellow-200 font-semibold'>{instructor}</span></p>
+                <p className="text-sm mb-2 max-h-24 overflow-hidden">{description}</p>
             </div>
 
             <div className='flex flex-col'>
-                <p className="text-black mb-4">Enrollment: <span className='text-black font-semibold'>{enrollment_status}</span></p>
+                <p className="mb-4">Enrollment: <span className='dark:text-green-400 text-green-500 font-semibold'>{enrollment_status}</span></p>
             </div>
         </div>
     );

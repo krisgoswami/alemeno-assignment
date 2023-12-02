@@ -96,7 +96,7 @@ const Auth = () => {
     return (
         <div className="flex flex-col lg:flex-row lg:h-screen">
             {/* Left side */}
-            <div className="lg:flex-1 bg-cyan-500 text-white p-12 flex items-center justify-center">
+            <div className="lg:flex-1 dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')] bg-blend-multiply text-gray-800 dark:text-gray-50 p-12 flex items-center justify-center">
                 <div>
                     <h2 className="text-4xl font-bold mb-4 text-center lg:text-left">Alemeno Courses</h2>
                     <p className="text-lg text-center lg:text-left">Login to access your account.</p>
@@ -104,19 +104,19 @@ const Auth = () => {
             </div>
 
             {/* Right side */}
-            <div className="lg:flex-1 flex items-center justify-center p-12">
-                <form className="max-w-md w-full space-y-4">
+            <div className="dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')] bg-blend-multiply text-gray-800 dark:text-gray-50 lg:flex-1 flex items-center justify-center p-12">
+                <form className="max-w-md p-5 w-full space-y-4">
                     <h2 className="text-2xl font-bold text-center">
                         {authState === "login" ? "Login" : "Create an account"}
                     </h2>
 
                     {authState === "signup" && (
                         <div>
-                            <label className="block text-gray-700">Username</label>
+                            <label className="block text-gray-700 dark:text-white">Username</label>
                             <input
                                 type="text"
                                 name="name"
-                                className="w-full border border-gray-300 rounded px-4 py-2"
+                                className="w-full border shadow-md dark:bg-gray-600 dark:text-gray-50 dark:border-gray-600 border-gray-50 rounded-md px-4 py-2"
                                 placeholder="Enter your Username"
                                 value={inputs.name}
                                 onChange={handleOnChange}
@@ -124,22 +124,22 @@ const Auth = () => {
                         </div>
                     )}
                     <div>
-                        <label className="block text-gray-700">Email</label>
+                        <label className="block text-gray-700 dark:text-white">Email</label>
                         <input
                             type="email"
                             name="email"
-                            className="w-full border border-gray-300 rounded px-4 py-2"
+                            className="w-full border shadow-md dark:bg-gray-600 dark:text-gray-50 dark:border-gray-600 border-gray-50 rounded-md px-4 py-2"
                             placeholder="Enter your email"
                             value={inputs.email}
                             onChange={handleOnChange}
                         />
                     </div>
                     <div>
-                        <label className="block text-gray-700">Password</label>
+                        <label className="block text-gray-700 dark:text-white">Password</label>
                         <input
                             type="password"
                             name="password"
-                            className="w-full border border-gray-300 rounded px-4 py-2"
+                            className="w-full border shadow-md dark:bg-gray-600 dark:text-gray-50 dark:border-gray-600 border-gray-50 rounded-md px-4 py-2"
                             placeholder="Enter your password"
                             value={inputs.password}
                             onChange={handleOnChange}
@@ -148,7 +148,7 @@ const Auth = () => {
                     {authState === "login" ? (
                         <button
                             type="submit"
-                            className="w-full bg-cyan-500 hover:bg-cyan-700 text-white py-2 rounded-lg"
+                            className="w-full bg-blue-500 hover:bg-blue-700 text-white dark:bg-white hover:dark:bg-gray-200 dark:text-gray-700 font-semibold py-2 rounded-lg"
                             onClick={handleLogin}
                         >
                             Login
@@ -156,7 +156,7 @@ const Auth = () => {
                     ) : (
                         <button
                             type="submit"
-                            className="w-full bg-cyan-500 hover:bg-cyan-700 text-white py-2 rounded-lg"
+                            className="w-full bg-blue-500 hover:bg-blue-700 text-white dark:bg-white hover:dark:bg-gray-200 dark:text-gray-700 font-semibold py-2 rounded-lg"
                             onClick={handleSignup}
                         >
                             Sign Up
@@ -167,9 +167,9 @@ const Auth = () => {
                         {authState === "login" ? "Don't have an account?" : "Already have an account?"}
                         <span>
                             {authState === "login" ? (
-                                <a className='ml-1 hover:underline cursor-pointer text-cyan-700' onClick={toggleAuthState}>Sign Up</a>
+                                <a className='ml-1 hover:underline cursor-pointer text-blue-700 dark:text-yellow-300' onClick={toggleAuthState}>Sign Up</a>
                             ) : (
-                                <a className='ml-1 hover:underline cursor-pointer text-cyan-700' onClick={toggleAuthState}>Login</a>
+                                <a className='ml-1 hover:underline cursor-pointer text-blue-700 dark:text-yellow-300' onClick={toggleAuthState}>Login</a>
                             )}
                         </span>
                     </p>
