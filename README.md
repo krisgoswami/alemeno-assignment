@@ -58,7 +58,7 @@ Follow these steps to set up the ToDo App on your local environment:
 
        ```env
        PORT=8080
-       MONGO_URI=<your-database-url
+       MONGO_URI=<your-database-url>
        SECRET=<your-secret-key>
        ```
 
