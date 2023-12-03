@@ -38,7 +38,7 @@ const Navbar = () => {
         <nav className="fixed z-10 top-0 left-0 right-0 bg-cyan-500 p-4">
             <div className="container mx-auto">
                 <div className="flex justify-between items-center">
-                    <div className="text-white font-bold text-xl cursor-pointer" onClick={() => { navigate('/home') }}>Alemeno</div>
+                    <div className="text-white font-bold text-xl cursor-pointer" onClick={() => { navigate('/home') }}>Alemeno Admin</div>
                     <div className="block lg:hidden">
                     </div>
                     <div className="lg:flex items-center justify-between text-lg gap-4">
