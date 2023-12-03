@@ -61,8 +61,8 @@ const Navbar = () => {
 					</div>
 					<div className='flex'>
 						<div className="lg:flex items-center justify-between text-lg gap-4 mr-10">
-							<p className="font-light text-base cursor-pointer hidden lg:block" onClick={() => { navigate('/') }}>Home</p>
-							<p className="font-light text-base cursor-pointer hidden lg:block" onClick={() => { navigate('/courses') }}>Courses</p>
+							<p className="font-medium text-base cursor-pointer hidden lg:block" onClick={() => { navigate('/') }}>Home</p>
+							<p className="font-medium text-base cursor-pointer hidden lg:block" onClick={() => { navigate('/courses') }}>Courses</p>
 						</div>
 						<form onSubmit={handleSearch} className="flex items-center">
 							<input
@@ -87,30 +87,31 @@ const Navbar = () => {
 						{!isLogin &&
 							<button className="bg-blue-500 hover:bg-blue-700 text-white dark:bg-white hover:dark:bg-gray-200 dark:text-gray-700 font-bold px-4 py-2 rounded-md ml-20" onClick={handleLogin}>Login</button>
 						}
+
 						{isLogin &&
 							<div className="mx-auto flex items-center justify-center bg-none rounded-md">
 								<div className="group relative cursor-pointer">
-									<div className="flex items-center justify-between space-x-5 bg-none px-2 rounded-sm">
-										<a className="menu-hover py-2 text-base font-medium text-white lg:mx-4" onClick="">
-											Hi, {user}! 👋
+									<div className="bg-blue-500 text-white dark:bg-white dark:text-gray-700 flex items-center justify-between space-x-3 bg-none pr-2 rounded-lg shadow-sm mb-1">
+										<a className="menu-hover py-2 text-base font-medium lg:mx-4" onClick="">
+											{user}
 										</a>
 										<span>
-											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-												stroke="white" className="h-6 w-6">
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2"
+												stroke="black" className="h-6 w-6">
 												<path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
 											</svg>
 										</span>
 									</div>
 
 									<div
-										className="invisible absolute z-50 flex w-full flex-col rounded-md bg-cyan-600  text-gray-800 shadow-xl group-hover:visible">
-										<a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate(`/profile/${userId}`) }}>
+										className="invisible absolute z-50 flex w-full flex-col rounded-md bg-white  text-gray-800 shadow-xl group-hover:visible">
+										<a className=" block border-b border-gray-300 text-sm py-3 font-medium text-gray-800 md:px-2" onClick={() => { navigate(`/profile/${userId}`) }}>
 											Profile
 										</a>
-										<a className=" block border-b border-white py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={() => { navigate('/enrolledCourses') }}>
+										<a className=" block border-b border-gray-300  text-sm py-3 font-medium text-gray-800 md:px-2" onClick={() => { navigate('/enrolledCourses') }}>
 											View enrolled courses
 										</a>
-										<a className="block py-4 font-semibold text-white hover:text-cyan-200 md:mx-2" onClick={handleLogout}>
+										<a className="block text-sm py-3 font-medium text-gray-800 md:px-2" onClick={handleLogout}>
 											Logout
 										</a>
 									</div>

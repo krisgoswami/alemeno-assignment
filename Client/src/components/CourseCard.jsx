@@ -67,7 +67,7 @@ export const CompletedCourseCard = ({ id, title, instructor, description, price,
         <div className="bg-slate-50 dark:bg-gray-800 w-80 h-[400px] p-4 shadow-md rounded-2xl mb-10">
             <img src={thumbnail} alt={''} className="w-full h-40 object-cover mb-4 rounded-md" />
             <h3 className="text-xl font-medium mb-2 max-h-24 truncate overflow-hidden">{title}</h3>
-            <p className="text-gray-700 dark:text-white mb-2 font-normal text-lg mt-4">by <span className='dark:text-yellow-200 font-medium'>{instructor}</span></p>
+            <p className="text-gray-700 dark:text-white mb-2 font-normal text-lg mt-4">by <span className='text-blue-500 dark:text-yellow-200 font-medium'>{instructor}</span></p>
             <div className='flex justify-between'>
                 <button
                     onClick={() => {
@@ -155,10 +155,10 @@ export const CoursesCard = ({ id, title, instructor, description, price, enrollm
             </div>
             <div className="md:ml-16">
                 <h2 className="text-3xl font-bold mb-4">{title}</h2>
-                <p className="dark:text-gray-200 mb-4">Instructor: <span className='dark:text-yellow-300 font-bold'>{instructor}</span></p>
+                <p className="dark:text-gray-200 mb-4">Instructor: <span className='text-blue-500 dark:text-yellow-300 font-bold'>{instructor}</span></p>
                 <p className="mb-4 text-lg text-justify">{description}</p>
                 <p className="text-xl font-bold mb-4">{`₹ ${price}`}</p>
-                <p className="mb-4">Enrollment: <span className='font-semibold'>{enrollment_status}</span></p>
+                <p className="mb-4">Enrollment: <span className='dark:text-green-400 text-green-500 font-semibold'>{enrollment_status}</span></p>
 
                 <button
                     onClick={() => {
