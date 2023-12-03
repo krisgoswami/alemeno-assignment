@@ -32,9 +32,9 @@ Follow these steps to set up the ToDo App on your local environment:
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/krisgoswami/alemeno-assignment.git
+   git clone https://github.com/krisgoswami/alemeno-courses.git
 
-   cd alemeno-assignment
+   cd alemeno-courses
    ```
 
 2. **Backend Setup**:
