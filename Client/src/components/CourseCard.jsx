@@ -149,7 +149,7 @@ export const DashboardCard = ({ id, title, instructor, description, price, enrol
 export const CoursesCard = ({ id, title, instructor, description, price, enrollment_status, thumbnail }) => {
     const navigate = useNavigate();
     return (
-        <div className="border shadow-md dark:border-none bg-gradient-to-b from-blue-50 to-transparent dark:from-gray-800 dark:text-white flex flex-col md:flex-row items-center p-4 mb-4 rounded-md">
+        <div className="border shadow-md dark:border-none bg-gradient-to-b from-blue-50 to-transparent dark:shadow-none dark:from-gray-800 dark:text-white flex flex-col md:flex-row items-center p-4 mb-4 rounded-md">
             <div className="md:flex-shrink-0 md:w-96 h-56 mb-4 md:mb-0">
                 <img src={thumbnail} alt={''} className="ml-4 w-full h-full object-cover rounded-md" />
             </div>
@@ -181,7 +181,7 @@ export const HomeCard = ({ id, title, instructor, description, price, enrollment
 
     return (
         <div
-            className="flex flex-col justify-between bg-slate-50 dark:bg-gray-800 w-80 h-[400px] p-4 shadow-md rounded-2xl mb-10 transform transition-transform hover:scale-105 cursor-pointer"
+            className="flex flex-col justify-between bg-slate-50 dark:bg-gray-900 w-80 h-[400px] p-4 shadow-md rounded-2xl mb-10 transform transition-transform hover:scale-105 cursor-pointer"
             onClick={() => {
                 navigate(`/course/${id}`);
             }}

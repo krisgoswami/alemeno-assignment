@@ -6,7 +6,6 @@ import { Toaster } from 'react-hot-toast';
 import { store } from './redux/store';
 import Auth from './pages/Auth';
 import Home from './pages/Home';
-import ShowNavbar from './components/ShowNavbar';
 import Navbar from './components/Navbar';
 import Courses from './pages/Courses';
 import Search from './pages/Search';

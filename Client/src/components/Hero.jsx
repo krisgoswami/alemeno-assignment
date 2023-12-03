@@ -6,7 +6,7 @@ const Hero = () => {
 			<div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
 				<a
 					href="#"
-					className="inline-flex justify-between items-center py-1 px-1 pe-4 mb-7 text-sm text-blue-500 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-200 hover:bg-blue-200 dark:hover:bg-blue-800"
+					className="inline-flex justify-between items-center py-1 px-1 pe-4 mb-7 text-sm text-blue-500 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-200 hover:bg-blue-200 dark:hover:bg-gray-700"
 				>
 					<span className="text-xs bg-blue-500 rounded-full text-white px-4 py-1.5 me-3">
 						New{' '}
@@ -73,7 +73,6 @@ const Hero = () => {
 					</div>
 				</form>
 			</div>
-			<div className="bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900 w-full h-full absolute top-0 left-0 z-0"></div>
 		</section>
 	)
 }

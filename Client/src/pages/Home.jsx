@@ -37,7 +37,7 @@ const Home = () => {
     //for scrollable course list
     const [scrollPosition, setScrollPosition] = useState(0);
     const handleScroll = (direction) => {
-        const container = document.getElementById('groundContainer');
+        const container = document.getElementById('courseContainer');
         const cardWidth = 350; //adjust as per card width
         const totalWidth = courses.length * cardWidth;
         const maxScroll = totalWidth - container.offsetWidth;
@@ -69,7 +69,7 @@ const Home = () => {
             </div>
 
             {/* Scroll Buttons */}
-            <div className="hidden sm:flex w-full absolute z-10 justify-between mt-72">
+            <div className="hidden sm:flex w-full absolute z-10 justify-between mt-72 px-5">
                 <button onClick={() => handleScroll('left')} className="text-white m-1 rounded-full">
                     <img className='w-10' src="../src/assets/images/la.svg" alt="left arrow" />
                 </button>
@@ -79,7 +79,7 @@ const Home = () => {
             </div>
 
             {/* Section for Courses */}
-            <div className='bg-gray-200 dark:bg-gray-800 dark:text-gray-50'>
+            <div className='bg-blue-100 dark:bg-gray-800 dark:text-gray-50'>
                 <div className='flex justify-between'>
                     <p className='font-bold text-xl pt-10 pl-4 sm:pl-10'>Featured courses</p>
                     <p
@@ -91,9 +91,9 @@ const Home = () => {
                         See all courses
                     </p>
                 </div>
-                <div id="courseContainer" className="flex mx-2 sm:mx-16 my-0 overflow-x-auto sm:overflow-hidden justify-between relative">
-                    <div className="flex justify-between my-5 gap-2 sm:gap-8" style={{ transform: `translateX(-${scrollPosition}px)`, transition: 'transform 0.3s' }}>
-                        {randomizedCourses?.slice(0, 6).map((course) => (
+                <div id="courseContainer" className="flex sm:mx-16 my-0 overflow-x-auto sm:overflow-hidden justify-between relative">
+                    <div className="flex justify-between my-5 px-10 gap-2 sm:gap-8" style={{ transform: `translateX(-${scrollPosition}px)`, transition: 'transform 0.3s' }}>
+                        {randomizedCourses?.slice(0, 7).map((course) => (
                             <div key={course._id} className='mb-8 sm:mb-0'>
                                 <HomeCard
                                     id={course?._id}

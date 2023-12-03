@@ -109,7 +109,7 @@ const Navbar = () => {
 											Profile
 										</a>
 										<a className=" block border-b border-gray-300  text-sm py-3 font-medium text-gray-800 md:px-2" onClick={() => { navigate('/enrolledCourses') }}>
-											View enrolled courses
+											Enrolled courses
 										</a>
 										<a className="block text-sm py-3 font-medium text-gray-800 md:px-2" onClick={handleLogout}>
 											Logout
