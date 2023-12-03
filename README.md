@@ -53,11 +53,11 @@ Follow these steps to set up the ToDo App on your local environment:
 
    - Configure the environment variables:
 
-     - Create a `.env` file in the `backend` directory.
+     - Create a `.env` file in the `server` directory.
      - Define the following variables:
 
        ```env
-       PORT= 8080
+       PORT=8080
        MONGO_URI=<your-database-url
        SECRET=<your-secret-key>
        ```
