@@ -100,7 +100,7 @@ const CourseDetails = () => {
 	};
 
 	return (
-		<div className="h-screen dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')] bg-blend-multiply text-gray-800 dark:text-gray-50">
+		<div className="h-screen md:h-full dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')] bg-blend-multiply text-gray-800 dark:text-gray-50">
 			<div className="max-w-full p-4 flex flex-col items-start md:flex-row md:ml-52">
 				{/* Product Image */}
 				<div className="w-full md:w-2/5 pr-8 mb-4 mt-10 md:mr-10">

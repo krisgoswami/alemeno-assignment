@@ -72,7 +72,7 @@ const EnrolledCourses = () => {
             {completedCourses.length !== 0 &&
                 <h2 className="text-xl font-semibold mb-2 md:mb-4 mt-5 ml-4 md:ml-10">Completed</h2>
             }
-            <div className='flex flex-col md:flex-row justify-between flex-wrap'>
+            <div className='flex flex-col md:flex-row justify-start flex-wrap'>
                 {completedCourses?.map((course) =>
                     <div key={course?._id} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mx-4 md:mx-10 mt-4">
                         <CompletedCourseCard

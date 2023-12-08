@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { authActions } from '../redux/store';
 import toast from 'react-hot-toast';
 import logo from '../assets/images/company-logo.png';
+import { FaShoppingCart } from "react-icons/fa";
+
 
 const Navbar = () => {
 
@@ -84,6 +86,10 @@ const Navbar = () => {
 						</div>
 					</div>
 					<div className='flex items-center'>
+
+						<div className='mr-5 text-gray-500 dark:text-gray-400'>
+							<FaShoppingCart />
+						</div>
 						{!isLogin &&
 							<button className="bg-blue-500 hover:bg-blue-700 text-white dark:bg-white hover:dark:bg-gray-200 dark:text-gray-700 font-bold px-4 py-2 rounded-md ml-20" onClick={handleLogin}>Login</button>
 						}
