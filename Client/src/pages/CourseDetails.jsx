@@ -1,17 +1,22 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 import { BASE_URL } from '../utils/helper';
 import { useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
+import { add } from '../redux/cartSlice';
 
 const CourseDetails = () => {
 
 	const token = localStorage.getItem('token');
 	const user = localStorage.getItem('username');
 	const email = localStorage.getItem('email');
+
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	const id = useParams().id;
+
 	const [inputs, setInputs] = useState({});
 	const [course, setCourse] = useState({});
 	const [isExpanded, setIsExpanded] = useState(false);
@@ -32,6 +37,7 @@ const CourseDetails = () => {
 			});
 			if (data?.success) {
 				const course = data?.course;
+				// console.log(course)
 				setCourse(course);
 				setInputs({
 					title: course.title,
@@ -61,10 +67,10 @@ const CourseDetails = () => {
 					'Authorization': `Bearer ${token}`,
 				}
 			});
-			console.log(data);
+			// console.log(data);
 			if (data.success) {
 				setIsCoursePurchased(data.enrolledCourses.some(course => course._id === id));
-				console.log(isCoursePurchased)
+				// console.log(isCoursePurchased)
 			}
 		} catch (error) {
 			console.log(error);
@@ -77,8 +83,8 @@ const CourseDetails = () => {
 
 	//to check if user is logged in or not and is course purchased or not
 	const authCheck = () => {
-		if (isLogin) {
-			console.log(isCoursePurchased);
+		if ('isLogin') {
+			// console.log(isCoursePurchased);
 			if (!isCoursePurchased) {
 				navigate(`/enroll/${id}`);
 			} else {
@@ -92,6 +98,11 @@ const CourseDetails = () => {
 			});
 			navigate('/login');
 		}
+	}
+
+	//add to course
+	const addToCart = (course) => {
+		dispatch(add(course));
 	}
 
 	//syllabus expand button
@@ -120,6 +131,12 @@ const CourseDetails = () => {
 						</div>
 						<div>
 							<p className="mb-4">Enrollment: <span className='text-green-500 dark:text-green-300 font-semibold'>{inputs.enrollment_status}</span></p>
+							<button
+								onClick={() => addToCart(course)}
+								className="bg-blue-500 hover:bg-blue-700 text-white dark:text-gray-700 dark:bg-white hover:dark:bg-gray-200 font-bold py-2 px-4 mr-4 rounded-full"
+							>
+								Add to cart
+							</button>
 							<button
 								onClick={authCheck}
 								className="bg-blue-500 hover:bg-blue-700 text-white dark:text-gray-700 dark:bg-white hover:dark:bg-gray-200 font-bold py-2 px-4 rounded-full"
