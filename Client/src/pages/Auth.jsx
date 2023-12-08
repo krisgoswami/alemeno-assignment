@@ -3,9 +3,9 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
-import { authActions } from "../redux/store";
 import { BASE_URL } from '../utils/helper';
 import { useCallback } from 'react';
+import { authActions } from '../redux/authSlice';
 
 const Auth = () => {
 

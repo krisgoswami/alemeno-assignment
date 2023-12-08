@@ -3,7 +3,7 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
-import { store } from './redux/store';
+import store from './redux/store';
 import Auth from './pages/Auth';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';

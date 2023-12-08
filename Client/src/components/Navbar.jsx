@@ -2,16 +2,20 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DarkThemeToggle } from 'flowbite-react'
 import { useSelector, useDispatch } from 'react-redux';
-import { authActions } from '../redux/store';
 import toast from 'react-hot-toast';
 import logo from '../assets/images/company-logo.png';
 import { FaShoppingCart } from "react-icons/fa";
+import { authActions } from '../redux/authSlice';
 
 
 const Navbar = () => {
 
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+
 	//global state
 	let isLogin = useSelector((state) => state.isLogin);
+	const cartItems = useSelector((state) => state.cart)
 	isLogin = isLogin || localStorage.getItem('userId');
 
 	let user = localStorage.getItem("username");
@@ -28,10 +32,6 @@ const Navbar = () => {
 			navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
 		}
 	};
-
-
-	const navigate = useNavigate();
-	const dispatch = useDispatch();
 
 	const handleLogin = () => {
 		navigate('/login');
@@ -50,6 +50,8 @@ const Navbar = () => {
 			console.log(error);
 		}
 	}
+
+
 
 
 	return (
@@ -88,7 +90,8 @@ const Navbar = () => {
 					<div className='flex items-center'>
 
 						<div className='mr-5 text-gray-500 dark:text-gray-400'>
-							<FaShoppingCart />
+							<button><FaShoppingCart /><span>Cart: {cartItems.length}</span> </button>
+
 						</div>
 						{!isLogin &&
 							<button className="bg-blue-500 hover:bg-blue-700 text-white dark:bg-white hover:dark:bg-gray-200 dark:text-gray-700 font-bold px-4 py-2 rounded-md ml-20" onClick={handleLogin}>Login</button>
