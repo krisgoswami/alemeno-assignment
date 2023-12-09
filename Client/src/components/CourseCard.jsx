@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { BASE_URL } from '../utils/helper';
 import toast from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
+import { remove } from '../redux/cartSlice';
 
 const CourseCard = ({ id, title, instructor, thumbnail, isCompleted }) => {
 
@@ -199,3 +201,35 @@ export const HomeCard = ({ id, title, instructor, description, price, enrollment
         </div>
     );
 };
+
+//****************************Cart card**************************
+
+export const CartCard = ({ id, title, instructor, price, thumbnail }) => {
+    const dispatch = useDispatch();
+
+    const handleRemove = (productId) => {
+        dispatch(remove(productId));
+    }
+
+    return (
+        <div className="border shadow-md dark:border-none bg-blue-50 dark:shadow-none dark:bg-gray-800 dark:text-white flex flex-col md:flex-row items-center p-4 mb-4 rounded-md">
+            <div className="md:flex-shrink-0 md:w-96 h-56 mb-4 md:mb-0">
+                <img src={thumbnail} alt={''} className="ml-4 w-full h-full object-cover rounded-md" />
+            </div>
+            <div className="md:ml-16">
+                <h2 className="text-3xl font-bold mb-4">{title}</h2>
+                <p className="dark:text-gray-200 mb-4">Instructor: <span className='text-blue-500 dark:text-yellow-300 font-bold'>{instructor}</span></p>
+                <p className="text-xl font-bold mb-4">{`₹ ${price}`}</p>
+
+                <button
+                    onClick={() => {
+                        handleRemove(productId);
+                    }}
+                    className="bg-blue-500 hover:bg-blue-700 text-white dark:text-gray-700 font-semibold dark:bg-white hover:dark:bg-gray-200 px-4 py-2 rounded-md">
+                    Remove
+                </button>
+            </div>
+        </div>
+
+    )
+}
