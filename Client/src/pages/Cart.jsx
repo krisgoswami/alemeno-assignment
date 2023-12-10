@@ -7,9 +7,9 @@ const Cart = () => {
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart);
     return (
-        <div>
+        <div className="h-screen md:h-full dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')] bg-blend-multiply text-gray-800 dark:text-gray-50">
             {cartItems.map((item) =>
-                <div key={item?._id} className="mx-4 md:mx-10 mt-4">
+                <div key={item?._id} className="mx-4 md:mx-10">
                     <CartCard
                         id={item.id}
                         title={item?.title}

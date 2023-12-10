@@ -14,6 +14,7 @@ import Purchase from './pages/Purchase';
 import EnrolledCourses from './pages/EnrolledCourses';
 import ProfilePage from './pages/ProfilePage';
 import Footer from './components/Footer';
+import Cart from './pages/Cart';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/enroll/:id" element={<Purchase />} />
             <Route path="/enrolledCourses" element={<EnrolledCourses />} />
             <Route path="/profile/:id" element={<ProfilePage />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
         </Router>
         <Footer />

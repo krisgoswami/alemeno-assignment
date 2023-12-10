@@ -90,7 +90,7 @@ const Navbar = () => {
 					<div className='flex items-center'>
 
 						<div className='mr-5 text-gray-500 dark:text-gray-400'>
-							<button><FaShoppingCart /><span>Cart: {cartItems.length}</span> </button>
+							<button onClick={() => { navigate("/cart") }}><FaShoppingCart /><span>Cart: {cartItems.length}</span> </button>
 
 						</div>
 						{!isLogin &&
