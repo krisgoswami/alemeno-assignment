@@ -1,6 +1,12 @@
 import express from 'express';
-import { adminLogin, createAdmin, createCourse, deleteCourse, getCourse, getCourses, updateCourse } from '../controllers/adminController.js';
 import { authenticateJwt } from '../utils/jwtAuth.js';
+import { createAdmin } from '../controllers/Admin/createAdmin.js';
+import { adminLogin } from '../controllers/Admin/adminLogin.js';
+import { createCourse } from '../controllers/Admin/createCourse.js';
+import { getCourses } from '../controllers/Admin/getCourses.js';
+import { getCourse } from '../controllers/Admin/getCourse.js';
+import { updateCourse } from '../controllers/Admin/updateCourse.js';
+import { deleteCourse } from '../controllers/Admin/deleteCourse.js';
 
 const router = express.Router();
 
